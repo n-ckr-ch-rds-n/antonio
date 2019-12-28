@@ -16,9 +16,17 @@ export class PlayerComponent implements OnInit {
   ngOnInit() {
     this.player = new Tone.Player('../../assets/SequentialCircuits/clap.wav').toMaster();
     this.transportService.transport.scheduleRepeat(() => {
-      this.player.start();
-    }, '5n');
+      if (this.beatActive(Tone.Transport.position)) {
+        this.player.start();
+      }
+    }, '16n');
+  }
 
+  beatActive(position: Tone.Encoding.BarsBeatsSixteenths): boolean {
+    const values = position.split(':');
+    const sixteenth = Math.floor(parseInt(values[2], 10));
+    console.log(sixteenth);
+    return parseInt(values[1], 10) === 1 && sixteenth === 2;
   }
 
 }

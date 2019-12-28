@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import * as Tone from 'tone';
 
 @Injectable({
@@ -10,5 +10,7 @@ export class TransportService {
     return Tone.Transport;
   }
 
-  constructor() { }
+  constructor() {
+  }
+
 }

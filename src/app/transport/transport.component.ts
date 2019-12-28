@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TransportService} from '../transport.service';
+import * as Tone from 'tone';
 
 @Component({
   selector: 'app-transport',
@@ -9,9 +10,15 @@ import {TransportService} from '../transport.service';
 export class TransportComponent implements OnInit {
   playing: boolean;
 
+  get transport(): Tone.Transport {
+    return this.transportService.transport;
+  }
+
   constructor(private transportService: TransportService) { }
 
   ngOnInit() {
+    this.transportService.transport.loop = true;
+    this.transportService.transport.loopEnd = '1m';
   }
 
   playButtonClick() {
