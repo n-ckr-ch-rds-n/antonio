@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import * as Tone from 'tone';
 import {TransportService} from '../transport.service';
 import {Player} from 'tone';
+import {defaultDrumValues} from '../../default.drum.values';
+import cloneDeep from 'lodash/cloneDeep';
 
 @Component({
   selector: 'app-player',
@@ -11,37 +13,15 @@ import {Player} from 'tone';
 export class PlayerComponent implements OnInit {
   player: Player;
 
-  activeBeats = {
-    0: {
-      0: true,
-      1: false,
-      2: false,
-      3: true
-    },
-    1: {
-      0: false,
-      1: true,
-      2: true,
-      3: false
-    },
-    2: {
-      0: false,
-      1: false,
-      2: false,
-      3: false
-    },
-    3: {
-      0: true,
-      1: false,
-      2: true,
-      3: false
-    }
-  };
+  @Input()
+  sample: string;
+
+  activeBeats = cloneDeep(defaultDrumValues);
 
   constructor(private transportService: TransportService) { }
 
   ngOnInit() {
-    this.player = new Tone.Player('../../assets/SequentialCircuits/kick.wav').toMaster();
+    this.player = new Tone.Player(`../../assets/SequentialCircuits/${this.sample}.wav`).toMaster();
     this.transportService.transport.scheduleRepeat(() => {
       if (this.beatActive(Tone.Transport.position)) {
         this.player.start();
