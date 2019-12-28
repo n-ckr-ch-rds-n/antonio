@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {TransportService} from '../transport.service';
-import * as Tone from 'tone';
 
 @Component({
   selector: 'app-transport',
@@ -8,10 +7,9 @@ import * as Tone from 'tone';
   styleUrls: ['./transport.component.scss']
 })
 export class TransportComponent implements OnInit {
-  Tone = Tone;
   playing: boolean;
 
-  constructor(private transportService: TransportService) { }
+  constructor(public transportService: TransportService) { }
 
   ngOnInit() {
     this.transportService.transport.loop = true;
@@ -28,6 +26,6 @@ export class TransportComponent implements OnInit {
   }
 
   tempoChange(event: any) {
-    Tone.Transport.bpm.value = event.target.value;
+    this.transportService.transport.bpm.value = event.target.value;
   }
 }
