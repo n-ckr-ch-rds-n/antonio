@@ -8,7 +8,7 @@ import * as Tone from 'tone';
 })
 export class AppComponent implements OnInit {
   title = 'antonio';
-  samples = ['clap', 'closehat', 'crash', 'kick', 'openhat', 'snare', 'tom1', 'tom2'];
+  samples = ['kick', 'clap', 'snare', 'closehat', 'crash', 'openhat', 'tom1', 'tom2'];
 
   async ngOnInit() {
     await (Tone.context as any as AudioContext).resume();

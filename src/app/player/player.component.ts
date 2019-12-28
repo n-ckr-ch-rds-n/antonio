@@ -21,7 +21,7 @@ export class PlayerComponent implements OnInit {
   constructor(private transportService: TransportService) { }
 
   ngOnInit() {
-    this.player = new Tone.Player(`../../assets/SequentialCircuits/${this.sample}.wav`).toMaster();
+    this.player = new Tone.Player(`../../assets/SequentialCircuits/${this.sample}.mp3`).toMaster();
     this.transportService.transport.scheduleRepeat(() => {
       if (this.beatActive(Tone.Transport.position)) {
         this.player.start();
