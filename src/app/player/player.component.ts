@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Tone from 'tone';
+import {TransportService} from '../transport.service';
 
 @Component({
   selector: 'app-player',
@@ -8,11 +9,14 @@ import * as Tone from 'tone';
 })
 export class PlayerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private transportService: TransportService) { }
 
   ngOnInit() {
     const player = new Tone.Player('../../assets/SequentialCircuits/clap.wav').toMaster();
     player.autostart = true;
+    player.loop = false;
+    player.loopStart = 0;
+    player.loopEnd = 15;
   }
 
 }
