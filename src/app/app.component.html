@@ -1,2 +1,5 @@
 <app-transport></app-transport>
-<app-player></app-player>
+<div *ngFor="let sample of samples">
+  {{sample}}
+  <app-player></app-player>
+</div>
