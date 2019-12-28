@@ -8,11 +8,8 @@ import * as Tone from 'tone';
   styleUrls: ['./transport.component.scss']
 })
 export class TransportComponent implements OnInit {
+  Tone = Tone;
   playing: boolean;
-
-  get transport(): Tone.Transport {
-    return this.transportService.transport;
-  }
 
   constructor(private transportService: TransportService) { }
 
@@ -30,4 +27,7 @@ export class TransportComponent implements OnInit {
     }
   }
 
+  tempoChange(event: any) {
+    Tone.Transport.bpm.value = event.target.value;
+  }
 }

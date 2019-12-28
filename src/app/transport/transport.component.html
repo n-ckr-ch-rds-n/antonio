@@ -1,1 +1,2 @@
 <button (click)="playButtonClick()">{{playing ? 'Stop' : 'Play'}}</button>
+<input type="number" name="bpm" min="1" max="500" [value]="Tone.Transport.bpm.value" (change)="tempoChange($event)">
