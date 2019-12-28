@@ -11,10 +11,37 @@ import {Player} from 'tone';
 export class PlayerComponent implements OnInit {
   player: Player;
 
+  activeBeats = {
+    0: {
+      0: true,
+      1: false,
+      2: false,
+      3: true
+    },
+    1: {
+      0: false,
+      1: true,
+      2: true,
+      3: false
+    },
+    2: {
+      0: false,
+      1: false,
+      2: false,
+      3: false
+    },
+    3: {
+      0: true,
+      1: false,
+      2: true,
+      3: false
+    }
+  };
+
   constructor(private transportService: TransportService) { }
 
   ngOnInit() {
-    this.player = new Tone.Player('../../assets/SequentialCircuits/clap.wav').toMaster();
+    this.player = new Tone.Player('../../assets/SequentialCircuits/kick.wav').toMaster();
     this.transportService.transport.scheduleRepeat(() => {
       if (this.beatActive(Tone.Transport.position)) {
         this.player.start();
@@ -24,9 +51,9 @@ export class PlayerComponent implements OnInit {
 
   beatActive(position: Tone.Encoding.BarsBeatsSixteenths): boolean {
     const values = position.split(':');
+    const beat = parseInt(values[1], 10);
     const sixteenth = Math.floor(parseInt(values[2], 10));
-    console.log(sixteenth);
-    return parseInt(values[1], 10) === 1 && sixteenth === 2;
+    return this.activeBeats[beat][sixteenth];
   }
 
 }
