@@ -23,7 +23,7 @@ export class PlayerComponent implements OnInit {
   ngOnInit() {
     this.player = new Tone.Player(`../../assets/SequentialCircuits/${this.sample}.mp3`).toMaster();
     this.transportService.transport.scheduleRepeat(() => {
-      if (this.beatActive(Tone.Transport.position)) {
+      if (this.beatActive(this.transportService.transport.position)) {
         this.player.start();
       }
     }, '16n');
@@ -34,6 +34,10 @@ export class PlayerComponent implements OnInit {
     const beat = parseInt(values[1], 10);
     const sixteenth = Math.floor(parseInt(values[2], 10));
     return this.activeBeats[beat][sixteenth];
+  }
+
+  reverse(event: any) {
+    console.log(event);
   }
 
 }
