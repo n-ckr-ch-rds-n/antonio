@@ -3,3 +3,5 @@
     <input type="checkbox" [(ngModel)]="activeBeats[beat.key][sixteenth.key]">
   </ng-container>
 </div>
+<input type="number" name="volume" min="-50" max="50"
+       [value]="player.volume.value" (change)="player.volume.value = $event.target.value">
