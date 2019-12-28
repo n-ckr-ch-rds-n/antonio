@@ -5,13 +5,9 @@ import * as Tone from 'tone';
   providedIn: 'root'
 })
 export class TransportService {
-  private $transport: Tone.Transport;
 
   get transport(): Tone.Transport {
-    if (!this.$transport) {
-      this.$transport = new Tone.Transport();
-    }
-    return this.$transport;
+    return Tone.Transport;
   }
 
   constructor() { }
