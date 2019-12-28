@@ -1,9 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { PlayerComponent } from './player/player.component';
-import { TransportComponent } from './transport/transport.component';
+import {AppComponent} from './app.component';
+import {PlayerComponent} from './player/player.component';
+import {TransportComponent} from './transport/transport.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,9 +13,11 @@ import { TransportComponent } from './transport/transport.component';
     TransportComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
