@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-pattern-generator',
@@ -8,6 +8,9 @@ import {Component, Input, OnInit} from '@angular/core';
 export class PatternGeneratorComponent implements OnInit {
   @Input()
   activeBeats: any;
+
+  @Output()
+  patternChange = new EventEmitter<any>();
 
   constructor() { }
 
@@ -20,6 +23,7 @@ export class PatternGeneratorComponent implements OnInit {
         this.activeBeats[beat][sixteenth] = clear ? false : Math.random() > 0.5;
       });
     });
+    this.patternChange.emit();
   }
 
 }
