@@ -4,6 +4,8 @@ import {Instrument, Sequence} from 'tone';
 import cloneDeep from 'lodash/cloneDeep';
 import sample from 'lodash/sample';
 import {defaultPatternValues} from '../../default.pattern.values';
+import {notesByKey} from '../pattern-generator/notes.by.key';
+import {Mood} from '../mood';
 
 @Component({
   selector: 'app-monosynth',
@@ -16,6 +18,8 @@ export class MonosynthComponent implements OnInit {
   notes: Array<string | string[]>;
   sequence: Sequence<any>;
   octave = 3;
+  key: string;
+  mood: Mood;
 
   constructor() { }
 
@@ -38,8 +42,9 @@ export class MonosynthComponent implements OnInit {
     });
   }
 
-  generateNote() {
-    const possibilities = ['C', 'D',]
+  generateNote(): string {
+    const possibilities = notesByKey[this.key][this.mood].map(note => `${note}${this.octave}`);
+    return sample(possibilities);
   }
 
   generateSequence() {

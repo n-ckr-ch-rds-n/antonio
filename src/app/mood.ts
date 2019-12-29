@@ -1,4 +1,4 @@
-export enum Key {
+export enum Mood {
   Major = 'major',
   Minor = 'minor'
 }

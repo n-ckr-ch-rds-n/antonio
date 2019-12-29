@@ -1,31 +1,32 @@
-import {Key} from '../key';
+import {Mood} from '../mood';
 
 export const notesByKey = {
   A: {
-    [Key.Major]: [],
-    [Key.Minor]: []
+    [Mood.Major]: ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'],
+    [Mood.Minor]: ['A', 'B', 'C', 'D', 'E', 'F', 'G#']
   },
   B: {
-    [Key.Major]: [],
-    [Key.Minor]: []  },
+    [Mood.Major]: ['B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#'],
+    [Mood.Minor]: ['B', 'C#', 'D', 'E', 'F#', 'G', 'A#']
+  },
   C: {
-    [Key.Major]: [],
-    [Key.Minor]: []
+    [Mood.Major]: ['C', 'D', 'E', 'F', 'G', 'A', 'B'],
+    [Mood.Minor]: ['C', 'D', 'Eb', 'F', 'G', 'Ab', 'B']
   },
   D: {
-    [Key.Major]: [],
-    [Key.Minor]: []
+    [Mood.Major]: ['D', 'E', 'F#', 'G', 'A', 'B', 'C#'],
+    [Mood.Minor]: ['D', 'E', 'F', 'G', 'A', 'Bb', 'C#']
   },
   E: {
-    [Key.Major]: [],
-    [Key.Minor]: []
+    [Mood.Major]: ['E', 'F#', 'G#', 'A', 'B', 'C#', 'D#'],
+    [Mood.Minor]: ['E', 'F#', 'G', 'A', 'B', 'C', 'D#']
   },
   F: {
-    [Key.Major]: [],
-    [Key.Minor]: []
+    [Mood.Major]: ['F', 'G', 'A', 'Bb', 'C', 'D', 'E'],
+    [Mood.Minor]: ['F', 'G', 'Ab', 'Bb', 'C', 'Db', 'E']
   },
   G: {
-    [Key.Major]: [],
-    [Key.Minor]: []
+    [Mood.Major]: ['G', 'A', 'B', 'C', 'D', 'E', 'F#'],
+    [Mood.Minor]: ['G', 'A', 'Bb', 'C', 'D', 'Eb', 'F#']
   },
-}
+};
