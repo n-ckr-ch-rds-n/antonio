@@ -36,8 +36,4 @@ export class PlayerComponent implements OnInit {
     return this.activeBeats[beat][sixteenth];
   }
 
-  reverse(event: any) {
-    console.log(event);
-  }
-
 }

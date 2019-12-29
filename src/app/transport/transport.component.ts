@@ -12,8 +12,6 @@ export class TransportComponent implements OnInit {
   constructor(public transportService: TransportService) { }
 
   ngOnInit() {
-    this.transportService.transport.loop = true;
-    this.transportService.transport.loopEnd = '1m';
   }
 
   playButtonClick() {
