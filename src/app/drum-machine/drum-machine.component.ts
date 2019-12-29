@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import * as Tone from 'tone';
 import {TransportService} from '../transport.service';
 import {Player} from 'tone';
-import {defaultDrumValues} from '../../default.drum.values';
+import {defaultPatternValues} from '../../default.pattern.values';
 import cloneDeep from 'lodash/cloneDeep';
 
 @Component({
@@ -16,7 +16,7 @@ export class DrumMachineComponent implements OnInit {
   @Input()
   sample: string;
 
-  activeBeats = cloneDeep(defaultDrumValues);
+  activeBeats = cloneDeep(defaultPatternValues);
 
   constructor(private transportService: TransportService) { }
 

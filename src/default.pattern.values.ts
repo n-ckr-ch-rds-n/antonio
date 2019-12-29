@@ -1,4 +1,4 @@
-export const defaultDrumValues = {
+export const defaultPatternValues = {
   0: {
     0: false,
     1: false,
