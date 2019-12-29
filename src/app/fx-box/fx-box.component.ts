@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Instrument, Player} from 'tone';
 import {FxService} from '../fx.service';
+import {MatCheckboxChange} from '@angular/material';
 
 @Component({
   selector: 'app-fx-box',
@@ -29,8 +30,8 @@ export class FxBoxComponent implements OnInit {
     this.activeFX = this.activeFX.filter(effect => effect.name !== effectName);
   }
 
-  async fxChange(event: Event): Promise<void> {
-    const input = event.target as HTMLInputElement;
-    input.checked ? await this.connect(input.name) : this.disconnect(input.name);
+  async fxChange(event: MatCheckboxChange): Promise<void> {
+    console.log(event);
+    event.checked ? await this.connect(event.source.name) : this.disconnect(event.source.name);
   }
 }
