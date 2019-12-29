@@ -14,9 +14,10 @@ import {
   MatCheckboxModule,
   MatDividerModule,
   MatFormFieldModule,
-  MatInputModule,
+  MatInputModule, MatSliderModule,
   MatToolbarModule
 } from '@angular/material';
+import { VolumeControlComponent } from './volume-control/volume-control.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {
     FxBoxComponent,
     PatternGeneratorComponent,
     MonosynthComponent,
-    TitleComponent
+    TitleComponent,
+    VolumeControlComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatDividerModule,
-    MatCardModule
+    MatCardModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
