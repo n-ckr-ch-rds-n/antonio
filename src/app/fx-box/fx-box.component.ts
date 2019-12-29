@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Player} from 'tone';
-import * as Tone from 'tone';
+import {FxService} from '../fx.service';
 
 @Component({
   selector: 'app-fx-box',
@@ -11,23 +11,26 @@ export class FxBoxComponent implements OnInit {
   @Input()
   source: Player;
 
-  delayFX: any;
+  activeFX: Array<{name: string, effect: any}> = [];
 
-  constructor() { }
+  constructor(private fxService: FxService) { }
 
   ngOnInit() {
   }
 
-  connect() {
-    this.delayFX = new Tone.PingPongDelay('16n', 0.2).toMaster();
-    this.source.connect(this.delayFX);
+  connect(effectName: string) {
+    const effect = this.fxService.createEffect(effectName);
+    this.activeFX.push({name: effectName, effect});
+    this.source.connect(effect);
   }
 
-  disconnect() {
-    this.source.disconnect(this.delayFX);
+  disconnect(effectName: string) {
+    this.source.disconnect((this.activeFX.find(effect => effect.name === effectName)).effect);
+    this.activeFX = this.activeFX.filter(effect => effect.name !== effectName);
   }
 
-  delayChange(event: Event): void {
-    (event.target as HTMLInputElement).checked ? this.connect() : this.disconnect();
+  fxChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    input.checked ? this.connect(input.name) : this.disconnect(input.name);
   }
 }
