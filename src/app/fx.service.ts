@@ -7,7 +7,8 @@ import * as Tone from 'tone';
 export class FxService {
 
   creator = {
-    delay: () => new Tone.PingPongDelay('16n', 0.2).toMaster()
+    delay: () => new Tone.PingPongDelay('16n', 0.2).toMaster(),
+    distortion: () => new Tone.Distortion(0.8).toMaster()
   };
 
   constructor() { }
