@@ -6,11 +6,11 @@ import {defaultDrumValues} from '../../default.drum.values';
 import cloneDeep from 'lodash/cloneDeep';
 
 @Component({
-  selector: 'app-player',
-  templateUrl: './player.component.html',
-  styleUrls: ['./player.component.scss']
+  selector: 'app-drum-machine',
+  templateUrl: './drum-machine.component.html',
+  styleUrls: ['./drum-machine.component.scss']
 })
-export class PlayerComponent implements OnInit {
+export class DrumMachineComponent implements OnInit {
   player: Player;
   delayFX: any;
 

@@ -1,16 +1,17 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppComponent} from './app.component';
-import {PlayerComponent} from './player/player.component';
+import {DrumMachineComponent} from './drum-machine/drum-machine.component';
 import {TransportComponent} from './transport/transport.component';
 import {FormsModule} from '@angular/forms';
+import { FxBoxComponent } from './fx-box/fx-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlayerComponent,
-    TransportComponent
+    DrumMachineComponent,
+    TransportComponent,
+    FxBoxComponent
   ],
   imports: [
     BrowserModule,
