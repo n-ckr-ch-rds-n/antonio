@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as Tone from 'tone';
 import {Instrument, Sequence} from 'tone';
 import cloneDeep from 'lodash/cloneDeep';
+import sample from 'lodash/sample';
 import {defaultPatternValues} from '../../default.pattern.values';
 
 @Component({
@@ -30,11 +31,15 @@ export class MonosynthComponent implements OnInit {
       const notes = [];
       Object.keys(this.activeBeats[beat]).forEach(sixteenth => {
         if (this.activeBeats[beat][sixteenth]) {
-          notes.push('Eb3');
+          notes.push(this.generateNote());
         }
       });
       return notes;
     });
+  }
+
+  generateNote() {
+    const possibilities = ['C', 'D',]
   }
 
   generateSequence() {
