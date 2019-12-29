@@ -5,13 +5,15 @@ import {DrumMachineComponent} from './drum-machine/drum-machine.component';
 import {TransportComponent} from './transport/transport.component';
 import {FormsModule} from '@angular/forms';
 import { FxBoxComponent } from './fx-box/fx-box.component';
+import { PatternGeneratorComponent } from './pattern-generator/pattern-generator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DrumMachineComponent,
     TransportComponent,
-    FxBoxComponent
+    FxBoxComponent,
+    PatternGeneratorComponent
   ],
   imports: [
     BrowserModule,
