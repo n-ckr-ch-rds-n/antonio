@@ -20,7 +20,7 @@ export class MonosynthComponent implements OnInit {
   activeBeats = cloneDeep(defaultPatternValues);
   notes: Array<string | string[]>;
   sequence: Sequence<any>;
-  octave = 3;
+  octave = 1;
   key = 'A';
   mood: Mood = Mood.Major;
 

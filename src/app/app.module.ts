@@ -7,6 +7,9 @@ import {FormsModule} from '@angular/forms';
 import {FxBoxComponent} from './fx-box/fx-box.component';
 import {PatternGeneratorComponent} from './pattern-generator/pattern-generator.component';
 import {MonosynthComponent} from './monosynth/monosynth.component';
+import { TitleComponent } from './title/title.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -15,11 +18,14 @@ import {MonosynthComponent} from './monosynth/monosynth.component';
     TransportComponent,
     FxBoxComponent,
     PatternGeneratorComponent,
-    MonosynthComponent
+    MonosynthComponent,
+    TitleComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-<button (click)="playButtonClick()">{{playing ? 'Stop' : 'Play'}}</button>
+<button mat-stroked-button color="{{playing ? 'primary' : 'accent'}}" (click)="playButtonClick()">{{playing ? 'Stop' : 'Play'}}</button>
 <label>BPM: </label>
 <input type="number" name="bpm" min="1" max="500"
        [value]="transportService.transport.bpm.value" (change)="tempoChange($event)">
