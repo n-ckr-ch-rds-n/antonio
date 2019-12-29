@@ -17,9 +17,9 @@ export class TransportComponent implements OnInit {
   playButtonClick() {
     this.playing = !this.playing;
     if (this.playing) {
-      this.transportService.transport.start();
+      this.transportService.play();
     } else {
-      this.transportService.transport.stop();
+      this.transportService.stop();
     }
   }
 

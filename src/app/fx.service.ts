@@ -9,12 +9,16 @@ export class FxService {
   creator = {
     delay: () => new Tone.PingPongDelay('16n', 0.2).toMaster(),
     distortion: () => new Tone.Distortion(0.8).toMaster(),
-    reverb: () => new Tone.Reverb(5).toMaster()
+    reverb: async () => {
+      const reverbNode = new Tone.Reverb(5).toMaster();
+      await reverbNode.generate();
+      return reverbNode;
+    }
   };
 
   constructor() { }
 
-  createEffect(effectName: string) {
-    return this.creator[effectName]();
+  async createEffect(effectName: string) {
+    return await this.creator[effectName]();
   }
 }

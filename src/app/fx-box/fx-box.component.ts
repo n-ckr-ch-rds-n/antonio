@@ -18,8 +18,8 @@ export class FxBoxComponent implements OnInit {
   ngOnInit() {
   }
 
-  connect(effectName: string) {
-    const effect = this.fxService.createEffect(effectName);
+  async connect(effectName: string) {
+    const effect = await this.fxService.createEffect(effectName);
     this.activeFX.push({name: effectName, effect});
     this.source.connect(effect);
   }
@@ -29,8 +29,8 @@ export class FxBoxComponent implements OnInit {
     this.activeFX = this.activeFX.filter(effect => effect.name !== effectName);
   }
 
-  fxChange(event: Event): void {
+  async fxChange(event: Event): void {
     const input = event.target as HTMLInputElement;
-    input.checked ? this.connect(input.name) : this.disconnect(input.name);
+    input.checked ? await this.connect(input.name) : this.disconnect(input.name);
   }
 }

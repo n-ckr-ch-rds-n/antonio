@@ -15,4 +15,11 @@ export class TransportService {
     Tone.Transport.loopEnd = '1m';
   }
 
+  play() {
+    this.transport.start();
+  }
+
+  stop() {
+    this.transport.stop();
+  }
 }
