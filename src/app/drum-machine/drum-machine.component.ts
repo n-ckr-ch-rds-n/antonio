@@ -22,11 +22,9 @@ export class DrumMachineComponent implements OnInit {
 
   ngOnInit() {
     this.player = new Tone.Player(`../../assets/SequentialCircuits/${this.sample}.mp3`).toMaster();
-    this.transportService.transport.scheduleRepeat(() => {
-      if (this.beatActive(this.transportService.transport.position)) {
-        this.player.start();
-      }
-    }, '16n');
+    this.transportService.clock.subscribe(beat => {
+      this.beatActive(beat) ? this.player.start() : this.player.stop();
+    });
   }
 
   beatActive(position: Tone.Encoding.BarsBeatsSixteenths): boolean {

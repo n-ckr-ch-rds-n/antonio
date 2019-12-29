@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TransportService} from '../transport.service';
 
 @Component({
@@ -9,7 +9,8 @@ import {TransportService} from '../transport.service';
 export class TransportComponent implements OnInit {
   playing: boolean;
 
-  constructor(public transportService: TransportService) { }
+  constructor(public transportService: TransportService) {
+  }
 
   ngOnInit() {
   }
