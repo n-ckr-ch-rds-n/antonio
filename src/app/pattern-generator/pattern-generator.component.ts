@@ -14,4 +14,12 @@ export class PatternGeneratorComponent implements OnInit {
   ngOnInit() {
   }
 
+  generatePattern() {
+    Object.keys(this.activeBeats).forEach(beat => {
+      Object.keys(this.activeBeats[beat]).forEach(sixteenth => {
+        this.activeBeats[beat][sixteenth] = Math.random() > 0.5;
+      });
+    });
+  }
+
 }

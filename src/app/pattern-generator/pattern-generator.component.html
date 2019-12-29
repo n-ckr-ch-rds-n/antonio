@@ -1,3 +1,4 @@
+<button (click)="generatePattern()">Generate</button>
 <div *ngFor="let beat of activeBeats | keyvalue">
   <ng-container *ngFor="let sixteenth of beat.value | keyvalue">
     <input type="checkbox" [(ngModel)]="activeBeats[beat.key][sixteenth.key]">
