@@ -6,6 +6,7 @@ import * as Tone from 'tone';
 })
 export class TransportService {
   clock = new EventEmitter<Tone.Encoding.BarsBeatsSixteenths>();
+  clockId: number;
 
   get transport(): Tone.Transport {
     return Tone.Transport;
@@ -17,13 +18,14 @@ export class TransportService {
   }
 
   play() {
-    this.transport.scheduleRepeat(() => {
+    this.clockId = this.transport.scheduleRepeat(() => {
       this.clock.emit(this.transport.position);
     }, '16n');
     this.transport.start();
   }
 
   stop() {
+    this.transport.clear(this.clockId);
     this.transport.stop();
   }
 }
