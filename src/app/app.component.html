@@ -1,7 +1,6 @@
 <app-title></app-title>
 <app-transport></app-transport>
 <div *ngFor="let sample of samples">
-  {{sample.toUpperCase()}}
   <app-drum-machine [sample]="sample"></app-drum-machine>
 </div>
 <app-monosynth></app-monosynth>

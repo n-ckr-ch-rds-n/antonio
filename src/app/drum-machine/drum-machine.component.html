@@ -5,5 +5,5 @@
          [value]="Math.floor(player.volume.value)" (change)="player.volume.value = $event.target.value">
 </mat-form-field>
 <label>Reverse: </label>
-<input type="checkbox" name="reverse" [value]="player.reverse" (change)="player.reverse = $event.target.checked">
+<mat-checkbox name="reverse" [value]="player.reverse" (change)="player.reverse = $event.checked"></mat-checkbox>
 <app-fx-box [source]="player"></app-fx-box>
