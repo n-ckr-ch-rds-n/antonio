@@ -12,6 +12,7 @@ import cloneDeep from 'lodash/cloneDeep';
 })
 export class PlayerComponent implements OnInit {
   player: Player;
+  delayFX: any;
 
   @Input()
   sample: string;
@@ -34,6 +35,19 @@ export class PlayerComponent implements OnInit {
     const beat = parseInt(values[1], 10);
     const sixteenth = Math.floor(parseInt(values[2], 10));
     return this.activeBeats[beat][sixteenth];
+  }
+
+  connect() {
+    this.delayFX = new Tone.PingPongDelay('16n', 0.2).toMaster();
+    this.player.connect(this.delayFX);
+  }
+
+  disconnect() {
+    this.player.disconnect(this.delayFX);
+  }
+
+  delay(on: boolean): void {
+    on ? this.connect() : this.disconnect();
   }
 
 }

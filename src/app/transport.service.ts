@@ -13,7 +13,6 @@ export class TransportService {
   constructor() {
     Tone.Transport.loop = true;
     Tone.Transport.loopEnd = '1m';
-    Tone.Transport.swingSubdivision = '16n';
   }
 
 }
