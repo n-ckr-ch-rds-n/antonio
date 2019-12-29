@@ -9,7 +9,7 @@ import {PatternGeneratorComponent} from './pattern-generator/pattern-generator.c
 import {MonosynthComponent} from './monosynth/monosynth.component';
 import { TitleComponent } from './title/title.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,9 @@ import {MatButtonModule} from '@angular/material';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

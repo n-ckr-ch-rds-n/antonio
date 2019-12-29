@@ -2,6 +2,6 @@
 <button mat-stroked-button color="accent" (click)="generatePattern(true)">Clear</button>
 <div *ngFor="let beat of activeBeats | keyvalue">
   <ng-container *ngFor="let sixteenth of beat.value | keyvalue">
-    <input type="checkbox" [(ngModel)]="activeBeats[beat.key][sixteenth.key]">
+    <mat-checkbox color="accent" [(ngModel)]="activeBeats[beat.key][sixteenth.key]"></mat-checkbox>
   </ng-container>
 </div>
