@@ -1,2 +1,11 @@
 <p>SYNTH</p>
+<select name="key" (change)="key = $event.target.value">
+  <option *ngFor="let scale of Object.keys(notesByKey)" value="{{scale}}">{{scale}}</option>
+</select>
+<select name="mood" (change)="mood = $event.target.value">
+  <option *ngFor="let majMin of Object.values(Mood)" value="{{majMin}}">{{majMin}}</option>
+</select>
+<select name="mood" (change)="mood = $event.target.value">
+  <option *ngFor="let octave of [1, 2, 3, 4, 5]" value="{{octave}}">{{octave}}</option>
+</select>
 <app-pattern-generator [activeBeats]="activeBeats" (patternChange)="regenerateSequence()"></app-pattern-generator>

@@ -13,13 +13,16 @@ import {Mood} from '../mood';
   styleUrls: ['./monosynth.component.scss']
 })
 export class MonosynthComponent implements OnInit {
+  Object = Object;
+  notesByKey = notesByKey;
+  Mood = Mood;
   synth: Instrument;
   activeBeats = cloneDeep(defaultPatternValues);
   notes: Array<string | string[]>;
   sequence: Sequence<any>;
   octave = 3;
-  key: string;
-  mood: Mood;
+  key = 'A';
+  mood: Mood = Mood.Major;
 
   constructor() { }
 
