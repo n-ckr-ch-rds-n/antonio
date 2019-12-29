@@ -2,11 +2,11 @@
   <p>MONOSYNTH</p>
   <app-volume-control [source]="synth"></app-volume-control><br>
   <mat-label>Key:</mat-label>
-  <mat-select (change)="key = $event.value" [value]="key">
+  <mat-select (valueChange)="key = $event" [value]="key">
     <mat-option *ngFor="let scale of Object.keys(notesByKey)" [value]="scale">{{scale}}</mat-option>
   </mat-select>
   <mat-label>Mood:</mat-label>
-  <mat-select (change)="mood = $event.value" [value]="mood">
+  <mat-select (valueChange)="mood = $event" [value]="mood">
     <mat-option *ngFor="let majMin of Object.values(Mood)" [value]="majMin">{{majMin}}</mat-option>
   </mat-select>
   <mat-label>Octave:</mat-label>
