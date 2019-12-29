@@ -6,6 +6,7 @@ import {TransportComponent} from './transport/transport.component';
 import {FormsModule} from '@angular/forms';
 import { FxBoxComponent } from './fx-box/fx-box.component';
 import { PatternGeneratorComponent } from './pattern-generator/pattern-generator.component';
+import { MonosynthComponent } from './monosynth/monosynth.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { PatternGeneratorComponent } from './pattern-generator/pattern-generator
     DrumMachineComponent,
     TransportComponent,
     FxBoxComponent,
-    PatternGeneratorComponent
+    PatternGeneratorComponent,
+    MonosynthComponent
   ],
   imports: [
     BrowserModule,

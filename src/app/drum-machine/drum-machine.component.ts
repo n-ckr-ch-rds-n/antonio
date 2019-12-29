@@ -23,7 +23,9 @@ export class DrumMachineComponent implements OnInit {
   ngOnInit() {
     this.player = new Tone.Player(`../../assets/SequentialCircuits/${this.sample}.mp3`).toMaster();
     this.transportService.clock.subscribe(beat => {
-      this.beatActive(beat) ? this.player.start() : this.player.stop();
+      if (this.beatActive(beat)) {
+        this.player.start();
+      }
     });
   }
 

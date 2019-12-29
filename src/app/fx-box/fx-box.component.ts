@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Player} from 'tone';
+import {Instrument, Player} from 'tone';
 import {FxService} from '../fx.service';
 
 @Component({
@@ -9,7 +9,7 @@ import {FxService} from '../fx.service';
 })
 export class FxBoxComponent implements OnInit {
   @Input()
-  source: Player;
+  source: Player | Instrument;
 
   activeFX: Array<{name: string, effect: any}> = [];
 
@@ -29,7 +29,7 @@ export class FxBoxComponent implements OnInit {
     this.activeFX = this.activeFX.filter(effect => effect.name !== effectName);
   }
 
-  async fxChange(event: Event): void {
+  async fxChange(event: Event): Promise<void> {
     const input = event.target as HTMLInputElement;
     input.checked ? await this.connect(input.name) : this.disconnect(input.name);
   }
