@@ -59,7 +59,12 @@ export class MonosynthComponent implements OnInit {
     );
   }
 
+  setOctave(event) {
+    console.log(event);
+  }
+
   regenerateSequence() {
+    console.log(this.octave);
     this.sequence.stop(0);
     this.notes = this.generateNotes();
     this.sequence = this.generateSequence();

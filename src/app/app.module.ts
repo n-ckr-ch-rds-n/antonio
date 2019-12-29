@@ -14,7 +14,7 @@ import {
   MatCheckboxModule,
   MatDividerModule,
   MatFormFieldModule,
-  MatInputModule, MatSliderModule,
+  MatInputModule, MatSelectModule, MatSliderModule,
   MatToolbarModule
 } from '@angular/material';
 import { VolumeControlComponent } from './volume-control/volume-control.component';
@@ -41,7 +41,8 @@ import { VolumeControlComponent } from './volume-control/volume-control.componen
     MatInputModule,
     MatDividerModule,
     MatCardModule,
-    MatSliderModule
+    MatSliderModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
