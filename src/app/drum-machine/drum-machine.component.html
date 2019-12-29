@@ -8,5 +8,4 @@
        [value]="player.volume.value" (change)="player.volume.value = $event.target.value">
 <label>Reverse: </label>
 <input type="checkbox" name="reverse" [value]="player.reverse" (change)="player.reverse = $event.target.checked">
-<label>Delay: </label>
-<input type="checkbox" name="delay" (change)="delay($event.target.checked)">
+<app-fx-box [source]="player"></app-fx-box>
