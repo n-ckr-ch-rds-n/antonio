@@ -1,7 +1,6 @@
 <button mat-flat-button color="{{playing ? 'accent' : 'primary'}}" (click)="playButtonClick()">{{playing ? 'Stop' : 'Play'}}</button>
-<label>BPM: </label>
-<mat-form-field>
-  <input matInput type="number" name="bpm" min="1" max="500" step="1"
+<mat-form-field hintLabel="BPM">
+  <input matInput type="number" name="bpm" min="1" max="500" step="1" placeholder="BPM"
        [value]="Math.floor(transportService.transport.bpm.value)" (change)="tempoChange($event)">
 </mat-form-field>
 <mat-divider></mat-divider>
