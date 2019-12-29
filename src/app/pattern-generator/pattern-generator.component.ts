@@ -14,10 +14,10 @@ export class PatternGeneratorComponent implements OnInit {
   ngOnInit() {
   }
 
-  generatePattern() {
+  generatePattern(clear?: boolean) {
     Object.keys(this.activeBeats).forEach(beat => {
       Object.keys(this.activeBeats[beat]).forEach(sixteenth => {
-        this.activeBeats[beat][sixteenth] = Math.random() > 0.5;
+        this.activeBeats[beat][sixteenth] = clear ? false : Math.random() > 0.5;
       });
     });
   }
