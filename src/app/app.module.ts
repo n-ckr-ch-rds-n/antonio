@@ -10,7 +10,7 @@ import {MonosynthComponent} from './monosynth/monosynth.component';
 import { TitleComponent } from './title/title.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MatButtonModule,
+  MatButtonModule, MatCardModule,
   MatCheckboxModule,
   MatDividerModule,
   MatFormFieldModule,
@@ -37,7 +37,8 @@ import {
     MatCheckboxModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDividerModule
+    MatDividerModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

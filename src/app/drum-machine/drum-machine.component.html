@@ -1,9 +1,24 @@
-<app-pattern-generator [activeBeats]="activeBeats"></app-pattern-generator>
-<mat-form-field>
-  <label>Volume: </label>
-  <input matInput type="number" name="volume" min="-50" max="50"
-         [value]="Math.floor(player.volume.value)" (change)="player.volume.value = $event.target.value">
-</mat-form-field>
-<label>Reverse: </label>
-<mat-checkbox name="reverse" [value]="player.reverse" (change)="player.reverse = $event.checked"></mat-checkbox>
-<app-fx-box [source]="player"></app-fx-box>
+<mat-card>
+  {{sample | titlecase}}
+  <div class="container">
+    <div>
+      <app-pattern-generator [activeBeats]="activeBeats"></app-pattern-generator>
+    </div>
+    <div>
+      <mat-card>
+        <h3 class="settings">Settings</h3>
+        <mat-form-field>
+          <label>Volume: </label>
+          <input matInput type="number" name="volume" min="-50" max="50"
+                 [value]="Math.floor(player.volume.value)" (change)="player.volume.value = $event.target.value">
+        </mat-form-field><br>
+        <label>Reverse: </label>
+        <mat-checkbox name="reverse" [value]="player.reverse" (change)="player.reverse = $event.checked"></mat-checkbox>
+      </mat-card>
+    </div>
+    <div>
+      <app-fx-box [source]="player"></app-fx-box>
+    </div>
+  </div>
+</mat-card>
+<mat-divider></mat-divider>

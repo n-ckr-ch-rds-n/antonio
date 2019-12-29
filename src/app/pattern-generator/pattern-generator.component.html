@@ -1,7 +1,10 @@
-<button mat-stroked-button color="primary" (click)="generatePattern()">Generate</button>
-<button mat-stroked-button color="accent" (click)="generatePattern(true)">Clear</button>
-<div *ngFor="let beat of activeBeats | keyvalue">
-  <ng-container *ngFor="let sixteenth of beat.value | keyvalue">
-    <mat-checkbox color="accent" [(ngModel)]="activeBeats[beat.key][sixteenth.key]"></mat-checkbox>
-  </ng-container>
-</div>
+<mat-card>
+  <button mat-stroked-button color="primary" (click)="generatePattern()">Generate</button>
+  <button mat-stroked-button color="accent" (click)="generatePattern(true)">Clear</button>
+  <div *ngFor="let beat of activeBeats | keyvalue">
+    <ng-container *ngFor="let sixteenth of beat.value | keyvalue">
+      <mat-checkbox color="accent" [(ngModel)]="activeBeats[beat.key][sixteenth.key]"></mat-checkbox>
+    </ng-container>
+  </div>
+</mat-card>
+
