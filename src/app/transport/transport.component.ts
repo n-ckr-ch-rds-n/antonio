@@ -7,6 +7,7 @@ import {TransportService} from '../transport.service';
   styleUrls: ['./transport.component.scss']
 })
 export class TransportComponent implements OnInit {
+  Math = Math;
   playing: boolean;
 
   constructor(public transportService: TransportService) {
