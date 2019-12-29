@@ -8,7 +8,8 @@ export class FxService {
 
   creator = {
     delay: () => new Tone.PingPongDelay('16n', 0.2).toMaster(),
-    distortion: () => new Tone.Distortion(0.8).toMaster()
+    distortion: () => new Tone.Distortion(0.8).toMaster(),
+    reverb: () => new Tone.Reverb(5).toMaster()
   };
 
   constructor() { }
