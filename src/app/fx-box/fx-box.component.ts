@@ -31,7 +31,6 @@ export class FxBoxComponent implements OnInit {
   }
 
   async fxChange(event: MatCheckboxChange): Promise<void> {
-    console.log(event);
     event.checked ? await this.connect(event.source.name) : this.disconnect(event.source.name);
   }
 }
