@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import * as Tone from 'tone';
 import {TransportService} from '../transport.service';
 import {Player} from 'tone';
-import {defaultPatternValues} from '../../default.pattern.values';
+import {defaultPatternValues} from '../default.pattern.values';
 import cloneDeep from 'lodash/cloneDeep';
 
 @Component({

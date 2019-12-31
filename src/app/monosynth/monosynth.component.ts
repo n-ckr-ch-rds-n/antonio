@@ -3,9 +3,10 @@ import * as Tone from 'tone';
 import {Instrument, Sequence} from 'tone';
 import cloneDeep from 'lodash/cloneDeep';
 import sample from 'lodash/sample';
-import {defaultPatternValues} from '../../default.pattern.values';
+import {defaultPatternValues} from '../default.pattern.values';
 import {notesByKey} from '../pattern-generator/notes.by.key';
 import {Mood} from '../mood';
+import {SequenceService} from '../sequence.service';
 
 @Component({
   selector: 'app-monosynth',
@@ -24,7 +25,7 @@ export class MonosynthComponent implements OnInit {
   key = 'A';
   mood: Mood = Mood.Major;
 
-  constructor() { }
+  constructor(private sequenceService: SequenceService) { }
 
   ngOnInit() {
     this.synth = new Tone.MonoSynth().toMaster();
