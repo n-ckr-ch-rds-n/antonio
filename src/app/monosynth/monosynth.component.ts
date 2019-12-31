@@ -18,7 +18,7 @@ export class MonosynthComponent implements OnInit {
   Mood = Mood;
   synth: Instrument;
   activeBeats = cloneDeep(defaultPatternValues);
-  notes: Array<string | string[]>;
+  notes: Array<string[]>;
   sequence: Sequence<any>;
   octave = 1;
   key = 'A';
@@ -63,6 +63,14 @@ export class MonosynthComponent implements OnInit {
   regenerateSequence() {
     this.sequence.stop(0);
     this.notes = this.generateNotes();
+    this.sequence = this.generateSequence();
+    this.sequence.start(0);
+  }
+
+  octaveChange(octave: number) {
+    this.octave = octave;
+    this.notes = this.notes.map(beat => beat
+      .map(note => note.replace(/[0-9]/, `${this.octave}`)));
     this.sequence = this.generateSequence();
     this.sequence.start(0);
   }
