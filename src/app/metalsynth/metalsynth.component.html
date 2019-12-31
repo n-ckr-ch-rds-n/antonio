@@ -1,0 +1,18 @@
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>METALSYNTH</mat-expansion-panel-header>
+    <mat-card>
+      <div class="container">
+        <div>
+          <app-volume-control [source]="synth"></app-volume-control><br>
+        </div>
+        <div>
+          <app-fx-box [source]="synth"></app-fx-box>
+        </div>
+        <div>
+          <app-pattern-generator [activeBeats]="activeBeats" (patternChange)="regenerateSequence()"></app-pattern-generator>
+        </div>
+      </div>
+    </mat-card>
+  </mat-expansion-panel>
+</mat-accordion>

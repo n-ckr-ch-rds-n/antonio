@@ -19,6 +19,7 @@ import {
 } from '@angular/material';
 import { VolumeControlComponent } from './volume-control/volume-control.component';
 import { DrumMachineComponent } from './drum-machine/drum-machine.component';
+import { MetalsynthComponent } from './metalsynth/metalsynth.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DrumMachineComponent } from './drum-machine/drum-machine.component';
     MonosynthComponent,
     TitleComponent,
     VolumeControlComponent,
-    DrumMachineComponent
+    DrumMachineComponent,
+    MetalsynthComponent
   ],
   imports: [
     BrowserModule,

@@ -31,11 +31,11 @@ export class SequenceService {
     return sample(possibilities);
   }
 
-  generateSequence(source: Sampler | Instrument, notes: Array<string[]>): Sequence {
+  generateSequence(source: Sampler | Instrument, notes: Array<string[]>): Sequence<any> {
     return new Tone.Sequence((time, note) => {
         source.triggerAttackRelease(note, '10hz', time);
       },
-      notes as ReadonlyArray<string>,
+      notes as any as ReadonlyArray<string>,
       '4n'
     );
   }
