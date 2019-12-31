@@ -22,25 +22,24 @@ export class DrumComponent implements OnInit {
 
   ngOnInit() {
     this.player = new Tone.Player(`../../assets/SequentialCircuits/${this.sample}.mp3`).toMaster();
-    const notes = [['C1', 'C2'], ['C1'], ['C1'], ['C1']];
-    const sequence = new Tone.Sequence((time, note) => {
-        sampler.triggerAttack(note);
-      },
-      notes as ReadonlyArray<string>,
-      '4n'
-    );
-    const sampler = new Tone.Sampler({
-      C1 : `../../assets/SequentialCircuits/${this.sample}.mp3`,
-    }, () => {
-      sequence.start(0);
-    }).toMaster();
+    // const notes = [['C1', 'C2'], ['C1'], ['C1'], ['C1']];
+    // const sequence = new Tone.Sequence((time, note) => {
+    //     sampler.triggerAttack(note);
+    //   },
+    //   notes as ReadonlyArray<string>,
+    //   '4n'
+    // );
+    // const sampler = new Tone.Sampler({
+    //   C1 : `../../assets/SequentialCircuits/${this.sample}.mp3`,
+    // }, () => {
+    //   sequence.start(0);
+    // }).toMaster();
 
-    // sequence.start(0);
-    // this.transportService.clock.subscribe(beat => {
-    //   if (this.beatActive(beat)) {
-    //     this.player.start();
-    //   }
-    // });
+    this.transportService.clock.subscribe(beat => {
+      if (this.beatActive(beat)) {
+        this.player.start();
+      }
+    });
   }
 
   beatActive(position: Tone.Encoding.BarsBeatsSixteenths): boolean {

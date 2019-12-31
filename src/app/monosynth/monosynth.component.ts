@@ -71,6 +71,7 @@ export class MonosynthComponent implements OnInit {
     this.octave = octave;
     this.notes = this.notes.map(beat => beat
       .map(note => note.replace(/[0-9]/, `${this.octave}`)));
+    this.sequence.stop(0);
     this.sequence = this.generateSequence();
     this.sequence.start(0);
   }
