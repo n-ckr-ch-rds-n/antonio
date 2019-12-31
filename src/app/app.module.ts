@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
-import {DrumMachineComponent} from './drum-machine/drum-machine.component';
+import {DrumComponent} from './drum/drum.component';
 import {TransportComponent} from './transport/transport.component';
 import {FormsModule} from '@angular/forms';
 import {FxBoxComponent} from './fx-box/fx-box.component';
@@ -12,23 +12,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule, MatCardModule,
   MatCheckboxModule,
-  MatDividerModule,
+  MatDividerModule, MatExpansionModule,
   MatFormFieldModule,
   MatInputModule, MatSelectModule, MatSliderModule,
   MatToolbarModule
 } from '@angular/material';
 import { VolumeControlComponent } from './volume-control/volume-control.component';
+import { DrumMachineComponent } from './drum-machine/drum-machine.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DrumMachineComponent,
+    DrumComponent,
     TransportComponent,
     FxBoxComponent,
     PatternGeneratorComponent,
     MonosynthComponent,
     TitleComponent,
-    VolumeControlComponent
+    VolumeControlComponent,
+    DrumMachineComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { VolumeControlComponent } from './volume-control/volume-control.componen
     MatDividerModule,
     MatCardModule,
     MatSliderModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

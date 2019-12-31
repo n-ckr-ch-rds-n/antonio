@@ -1,17 +1,11 @@
-<mat-card>
-  <h2>{{sample | titlecase}}</h2>
-  <div class="container">
-    <div>
-      <app-volume-control [source]="player"></app-volume-control>
-      <div><label>Reverse: </label>
-        <mat-checkbox name="reverse" [value]="player.reverse" (change)="player.reverse = $event.checked"></mat-checkbox></div>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      DRUM MACHINE
+    </mat-expansion-panel-header>
+    <div *ngFor="let sample of samples">
+      <app-drum [sample]="sample"></app-drum>
     </div>
-    <div>
-      <app-fx-box [source]="player"></app-fx-box>
-    </div>
-    <div>
-      <app-pattern-generator [activeBeats]="activeBeats"></app-pattern-generator>
-    </div>
-  </div>
-</mat-card>
+  </mat-expansion-panel>
+</mat-accordion>
 <mat-divider></mat-divider>

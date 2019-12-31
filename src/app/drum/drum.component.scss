@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.container > div {
+  margin: 10px;
+  width: 30%;
+}
