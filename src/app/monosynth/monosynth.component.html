@@ -1,18 +1,36 @@
-<mat-card>
-  <p>MONOSYNTH</p>
-  <app-volume-control [source]="synth"></app-volume-control><br>
-  <mat-label>Key:</mat-label>
-  <mat-select (valueChange)="key = $event" [value]="key">
-    <mat-option *ngFor="let scale of Object.keys(notesByKey)" [value]="scale">{{scale}}</mat-option>
-  </mat-select>
-  <mat-label>Mood:</mat-label>
-  <mat-select (valueChange)="mood = $event" [value]="mood">
-    <mat-option *ngFor="let majMin of Object.values(Mood)" [value]="majMin">{{majMin}}</mat-option>
-  </mat-select>
-  <mat-label>Octave:</mat-label>
-  <mat-select (valueChange)="octave = $event" [value]="octave">
-    <mat-option *ngFor="let octave of [1, 2, 3, 4, 5]" [value]="octave">{{octave}}</mat-option>
-  </mat-select>
-  <app-pattern-generator [activeBeats]="activeBeats" (patternChange)="regenerateSequence()"></app-pattern-generator>
-</mat-card>
-
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>MONOSYNTH</mat-expansion-panel-header>
+    <mat-card>
+      <div class="container">
+        <div>
+          <app-volume-control [source]="synth"></app-volume-control><br>
+          <mat-form-field>
+            <mat-label>Key:</mat-label>
+            <mat-select (valueChange)="key = $event" [value]="key">
+              <mat-option *ngFor="let scale of Object.keys(notesByKey)" [value]="scale">{{scale}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Mood:</mat-label>
+            <mat-select (valueChange)="mood = $event" [value]="mood">
+              <mat-option *ngFor="let majMin of Object.values(Mood)" [value]="majMin">{{majMin}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Octave:</mat-label>
+            <mat-select (valueChange)="octave = $event" [value]="octave">
+              <mat-option *ngFor="let octave of [1, 2, 3, 4, 5]" [value]="octave">{{octave}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <app-fx-box [source]="synth"></app-fx-box>
+        </div>
+        <div>
+          <app-pattern-generator [activeBeats]="activeBeats" (patternChange)="regenerateSequence()"></app-pattern-generator>
+        </div>
+      </div>
+    </mat-card>
+  </mat-expansion-panel>
+</mat-accordion>
