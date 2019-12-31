@@ -34,7 +34,9 @@ export class DrumComponent implements OnInit {
     // }, () => {
     //   sequence.start(0);
     // }).toMaster();
-
+    // const buffer = sampler._buffers._buffers[24];
+    // buffer.reverse = true;
+    // console.log(buffer.reverse);
     this.transportService.clock.subscribe(beat => {
       if (this.beatActive(beat)) {
         this.player.start();
