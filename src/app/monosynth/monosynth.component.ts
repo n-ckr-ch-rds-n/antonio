@@ -46,7 +46,8 @@ export class MonosynthComponent implements OnInit {
   }
 
   generateNote(): string {
-    const possibilities = notesByKey[this.key][this.mood].map(note => `${note}${this.octave}`);
+    const possibilities = notesByKey[this.key][this.mood]
+      .map(note => `${note}${this.octave}`);
     return sample(possibilities);
   }
 

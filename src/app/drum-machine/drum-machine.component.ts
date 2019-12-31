@@ -11,7 +11,6 @@ import cloneDeep from 'lodash/cloneDeep';
   styleUrls: ['./drum-machine.component.scss']
 })
 export class DrumMachineComponent implements OnInit {
-  Math = Math;
   player: Player;
 
   @Input()
