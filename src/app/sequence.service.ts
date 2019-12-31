@@ -3,6 +3,8 @@ import {notesByKey} from './pattern-generator/notes.by.key';
 import sample from 'lodash/sample';
 import {Beatmap} from './beatmap';
 import {GenerateNotesRequest} from './generate.notes.request';
+import * as Tone from 'tone';
+import {Instrument, Player, Sampler, Sequence} from 'tone';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +29,14 @@ export class SequenceService {
     const possibilities = notesByKey[request.key][request.mood]
       .map(note => `${note}${request.octave}`);
     return sample(possibilities);
+  }
+
+  generateSequence(source: Sampler | Instrument, notes: Array<string[]>): Sequence {
+    return new Tone.Sequence((time, note) => {
+        source.triggerAttackRelease(note, '10hz', time);
+      },
+      notes as ReadonlyArray<string>,
+      '4n'
+    );
   }
 }
