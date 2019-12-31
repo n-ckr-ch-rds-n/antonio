@@ -1,0 +1,9 @@
+.fx-box {
+  width: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.fx-box > div {
+  margin-bottom: 10px;
+}

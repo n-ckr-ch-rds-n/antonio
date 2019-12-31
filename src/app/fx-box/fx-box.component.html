@@ -1,8 +1,15 @@
-<mat-card>
-  <label>Delay: </label>
-  <mat-checkbox name="delay" (change)="fxChange($event)"></mat-checkbox><br>
-  <label>Distortion: </label>
-  <mat-checkbox name="distortion" (change)="fxChange($event)"></mat-checkbox><br>
-  <label>Reverb: </label>
-  <mat-checkbox name="reverb" (change)="fxChange($event)"></mat-checkbox><br>
-</mat-card>
+<div class="fx-box">
+  <div class="fx">
+    <label>Delay: </label>
+    <mat-checkbox name="delay" (change)="fxChange($event)"></mat-checkbox><br>
+  </div>
+  <div>
+    <label>Distortion: </label>
+    <mat-checkbox name="distortion" (change)="fxChange($event)"></mat-checkbox><br>
+  </div>
+  <div>
+    <label>Reverb: </label>
+    <mat-checkbox name="reverb" (change)="fxChange($event)"></mat-checkbox><br>
+  </div>
+</div>
+
