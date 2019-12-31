@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {notesByKey} from './pattern-generator/notes.by.key';
 import sample from 'lodash/sample';
+import {Beatmap} from './beatmap';
+import {GenerateNotesRequest} from './generate.notes.request';
 
 @Injectable({
   providedIn: 'root'
@@ -9,22 +11,21 @@ export class SequenceService {
 
   constructor() { }
 
-  generateNotes(activeBeats: any) {
-    return Object.keys(activeBeats).map(beat => {
+  generateNotes(request: GenerateNotesRequest) {
+    return Object.keys(request.beatmap).map(beat => {
       const notes = [];
-      Object.keys(activeBeats[beat]).forEach(sixteenth => {
-        if (activeBeats[beat][sixteenth]) {
-          notes.push(this.generateNote());
+      Object.keys(request.beatmap[beat]).forEach(sixteenth => {
+        if (request.beatmap[beat][sixteenth]) {
+          notes.push(this.generateNote(request));
         }
       });
       return notes;
     });
   }
 
-  generateNote(): string {
-    // const possibilities = notesByKey[this.key][this.mood]
-    //   .map(note => `${note}${this.octave}`);
-    // return sample(possibilities);
-    return '';
+  generateNote(request: GenerateNotesRequest): string {
+    const possibilities = notesByKey[request.key][request.mood]
+      .map(note => `${note}${request.octave}`);
+    return sample(possibilities);
   }
 }

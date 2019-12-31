@@ -1,4 +1,3 @@
-import {BeatDivision} from './beat.division';
 import {Beatmap} from './beatmap';
 
 export const defaultPatternValues: Beatmap = {

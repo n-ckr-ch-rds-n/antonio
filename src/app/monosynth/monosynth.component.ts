@@ -7,6 +7,7 @@ import {defaultPatternValues} from '../default.pattern.values';
 import {notesByKey} from '../pattern-generator/notes.by.key';
 import {Mood} from '../mood';
 import {SequenceService} from '../sequence.service';
+import {Beatmap} from '../beatmap';
 
 @Component({
   selector: 'app-monosynth',
@@ -18,7 +19,7 @@ export class MonosynthComponent implements OnInit {
   notesByKey = notesByKey;
   Mood = Mood;
   synth: Instrument;
-  activeBeats = cloneDeep(defaultPatternValues);
+  activeBeats: Beatmap = cloneDeep(defaultPatternValues);
   notes: Array<string[]>;
   sequence: Sequence<any>;
   octave = 1;
