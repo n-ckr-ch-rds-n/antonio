@@ -1,18 +1,21 @@
-<mat-form-field>
-  <mat-label>Key:</mat-label>
-  <mat-select (valueChange)="pitchConfig.key = $event" [value]="key">
-    <mat-option *ngFor="let scale of Object.keys(notesByKey)" [value]="scale">{{scale}}</mat-option>
-  </mat-select>
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Mood:</mat-label>
-  <mat-select (valueChange)="pitchConfig.mood = $event" [value]="mood">
-    <mat-option *ngFor="let majMin of Object.values(Mood)" [value]="majMin">{{majMin}}</mat-option>
-  </mat-select>
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Octave:</mat-label>
-  <mat-select (valueChange)="changeOctave($event)" [value]="octave">
-    <mat-option *ngFor="let octave of [1, 2, 3, 4, 5]" [value]="octave">{{octave}}</mat-option>
-  </mat-select>
-</mat-form-field>
+<div class="pitch-controls">
+  <mat-form-field>
+    <mat-label>Key:</mat-label>
+    <mat-select (valueChange)="pitchConfig.key = $event" [value]="pitchConfig.key">
+      <mat-option *ngFor="let scale of Object.keys(notesByKey)" [value]="scale">{{scale}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Mood:</mat-label>
+    <mat-select (valueChange)="pitchConfig.mood = $event" [value]="pitchConfig.mood">
+      <mat-option *ngFor="let majMin of Object.values(Mood)" [value]="majMin">{{majMin}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Octave:</mat-label>
+    <mat-select (valueChange)="changeOctave($event)" [value]="pitchConfig.octave">
+      <mat-option *ngFor="let octave of [1, 2, 3, 4, 5]" [value]="octave">{{octave}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
