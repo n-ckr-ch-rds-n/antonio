@@ -20,6 +20,7 @@ import {
 import { VolumeControlComponent } from './volume-control/volume-control.component';
 import { DrumMachineComponent } from './drum-machine/drum-machine.component';
 import { MetalsynthComponent } from './metalsynth/metalsynth.component';
+import { PitchControlsComponent } from './pitch-controls/pitch-controls.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MetalsynthComponent } from './metalsynth/metalsynth.component';
     TitleComponent,
     VolumeControlComponent,
     DrumMachineComponent,
-    MetalsynthComponent
+    MetalsynthComponent,
+    PitchControlsComponent
   ],
   imports: [
     BrowserModule,
