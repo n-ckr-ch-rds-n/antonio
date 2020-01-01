@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Instrument, Sequence} from 'tone';
 import cloneDeep from 'lodash/cloneDeep';
 import {defaultPatternValues} from '../default.pattern.values';
@@ -21,7 +21,10 @@ export class MonosynthComponent implements OnInit {
     octave: 1,
     mood: Mood.Major
   };
-  synthType: SynthType = SynthType.Monosynth;
+
+  @Input()
+  synthType: SynthType;
+
   synth: Instrument;
   activeBeats: Beatmap = cloneDeep(defaultPatternValues);
   notes: Array<string[]>;

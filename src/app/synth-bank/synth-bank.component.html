@@ -1,0 +1,11 @@
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      SYNTH BANK
+    </mat-expansion-panel-header>
+    <div *ngFor="let synthType of Object.values(SynthType)">
+      <app-monosynth [synthType]="synthType"></app-monosynth>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<mat-divider></mat-divider>

@@ -16,7 +16,7 @@ export class SynthService {
   constructor() {
   }
 
-  create(synth: SynthType) {
+  create(synth: SynthType): Instrument {
     return this.creator[synth]();
   }
 
