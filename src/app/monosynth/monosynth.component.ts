@@ -3,7 +3,6 @@ import * as Tone from 'tone';
 import {Instrument, Sequence} from 'tone';
 import cloneDeep from 'lodash/cloneDeep';
 import {defaultPatternValues} from '../default.pattern.values';
-import {notesByKey} from '../pattern-generator/notes.by.key';
 import {Mood} from '../mood';
 import {SequenceService} from '../sequence.service';
 import {Beatmap} from '../beatmap';
@@ -15,9 +14,6 @@ import {GenerateNotesRequest} from '../generate.notes.request';
   styleUrls: ['./monosynth.component.scss']
 })
 export class MonosynthComponent implements OnInit {
-  Object = Object;
-  notesByKey = notesByKey;
-  Mood = Mood;
   synth: Instrument;
   activeBeats: Beatmap = cloneDeep(defaultPatternValues);
   notes: Array<string[]>;

@@ -12,7 +12,7 @@
 </mat-form-field>
 <mat-form-field>
   <mat-label>Octave:</mat-label>
-  <mat-select (valueChange)="octaveChange($event)" [value]="octave">
+  <mat-select (valueChange)="octaveChange.emit($event)" [value]="octave">
     <mat-option *ngFor="let octave of [1, 2, 3, 4, 5]" [value]="octave">{{octave}}</mat-option>
   </mat-select>
 </mat-form-field>
