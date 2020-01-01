@@ -5,7 +5,7 @@
       <div class="container">
         <div>
           <app-volume-control [source]="synth"></app-volume-control><br>
-          <app-pitch-controls [key]="key" [mood]="mood" (octaveChange)="octaveChange($event)"></app-pitch-controls>
+          <app-pitch-controls [pitchConfig]="pitchConfig" (octaveChange)="octaveChange($event)"></app-pitch-controls>
         </div>
         <div>
           <app-fx-box [source]="synth"></app-fx-box>

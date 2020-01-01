@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {notesByKey} from '../pattern-generator/notes.by.key';
 import {Mood} from '../mood';
+import {PitchConfig} from '../pitch.config';
 
 @Component({
   selector: 'app-pitch-controls',
@@ -13,10 +14,7 @@ export class PitchControlsComponent implements OnInit {
   Mood = Mood;
 
   @Input()
-  key: string;
-
-  @Input()
-  mood: Mood;
+  pitchConfig: PitchConfig;
 
   @Output()
   octaveChange = new EventEmitter<number>();
