@@ -1,6 +1,6 @@
 <mat-card>
+  <h2>{{synthType | titlecase}}</h2>
   <div class="container">
-    <h2>{{synthType | titlecase}}</h2>
     <div>
       <app-volume-control [source]="synth"></app-volume-control><br>
       <app-pitch-controls [pitchConfig]="pitchConfig" (octaveChange)="octaveChange($event)"></app-pitch-controls>
