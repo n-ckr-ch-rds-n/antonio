@@ -25,4 +25,9 @@ export class PitchControlsComponent implements OnInit {
   ngOnInit() {
   }
 
+  changeOctave(octave: number) {
+    this.pitchConfig.octave = octave;
+    this.octaveChange.emit(octave);
+  }
+
 }

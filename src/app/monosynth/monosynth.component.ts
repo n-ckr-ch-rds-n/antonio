@@ -42,9 +42,8 @@ export class MonosynthComponent implements OnInit {
   }
 
   octaveChange(octave: number) {
-    this.octave = octave;
     this.notes = this.notes.map(beat => beat
-      .map(note => note.replace(/[0-9]/, `${this.octave}`)));
+      .map(note => note.replace(/[0-9]/, `${this.pitchConfig.octave}`)));
     this.sequence.stop(0);
     this.sequence = this.sequenceService.generateSequence(this.synth, this.notes);
     this.sequence.start(0);
