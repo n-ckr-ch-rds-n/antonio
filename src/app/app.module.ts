@@ -19,7 +19,6 @@ import {
 } from '@angular/material';
 import { VolumeControlComponent } from './volume-control/volume-control.component';
 import { DrumMachineComponent } from './drum-machine/drum-machine.component';
-import { MetalsynthComponent } from './metalsynth/metalsynth.component';
 import { PitchControlsComponent } from './pitch-controls/pitch-controls.component';
 import { SynthBankComponent } from './synth-bank/synth-bank.component';
 
@@ -34,7 +33,6 @@ import { SynthBankComponent } from './synth-bank/synth-bank.component';
     TitleComponent,
     VolumeControlComponent,
     DrumMachineComponent,
-    MetalsynthComponent,
     PitchControlsComponent,
     SynthBankComponent
   ],
