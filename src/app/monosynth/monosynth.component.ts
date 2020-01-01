@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import * as Tone from 'tone';
 import {Instrument, Sequence} from 'tone';
 import cloneDeep from 'lodash/cloneDeep';
 import {defaultPatternValues} from '../default.pattern.values';
@@ -8,6 +7,8 @@ import {SequenceService} from '../sequence.service';
 import {Beatmap} from '../beatmap';
 import {GenerateNotesRequest} from '../generate.notes.request';
 import {PitchConfig} from '../pitch.config';
+import {SynthService} from '../synth.service';
+import {SynthType} from '../synth.type';
 
 @Component({
   selector: 'app-monosynth',
@@ -20,15 +21,17 @@ export class MonosynthComponent implements OnInit {
     octave: 1,
     mood: Mood.Major
   };
+  synthType: SynthType = SynthType.Monosynth;
   synth: Instrument;
   activeBeats: Beatmap = cloneDeep(defaultPatternValues);
   notes: Array<string[]>;
   sequence: Sequence<any>;
 
-  constructor(private sequenceService: SequenceService) { }
+  constructor(private sequenceService: SequenceService,
+              private synthService: SynthService) { }
 
   ngOnInit() {
-    this.synth = new Tone.MonoSynth().toMaster();
+    this.synth = this.synthService.create(this.synthType);
     this.notes = this.sequenceService.generateNotes(this.toGenerateNotesRequest());
     this.sequence = this.sequenceService.generateSequence(this.synth, this.notes);
     this.sequence.start(0);
