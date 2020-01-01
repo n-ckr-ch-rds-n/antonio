@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MonosynthComponent } from './monosynth.component';
+import { SynthControlsComponent } from './synth-controls.component';
 
-describe('MonosynthComponent', () => {
-  let component: MonosynthComponent;
-  let fixture: ComponentFixture<MonosynthComponent>;
+describe('SynthControlsComponent', () => {
+  let component: SynthControlsComponent;
+  let fixture: ComponentFixture<SynthControlsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MonosynthComponent ]
+      declarations: [ SynthControlsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MonosynthComponent);
+    fixture = TestBed.createComponent(SynthControlsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

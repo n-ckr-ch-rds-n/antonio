@@ -12,10 +12,10 @@ import {SynthType} from '../synth.type';
 
 @Component({
   selector: 'app-monosynth',
-  templateUrl: './monosynth.component.html',
-  styleUrls: ['./monosynth.component.scss']
+  templateUrl: './synth.component.html',
+  styleUrls: ['./synth.component.scss']
 })
-export class MonosynthComponent implements OnInit {
+export class SynthComponent implements OnInit {
   pitchConfig: PitchConfig = {
     key: 'A',
     octave: 1,

@@ -6,7 +6,7 @@ import {TransportComponent} from './transport/transport.component';
 import {FormsModule} from '@angular/forms';
 import {FxBoxComponent} from './fx-box/fx-box.component';
 import {PatternGeneratorComponent} from './pattern-generator/pattern-generator.component';
-import {MonosynthComponent} from './monosynth/monosynth.component';
+import {SynthComponent} from './synth/synth.component';
 import { TitleComponent } from './title/title.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -21,6 +21,7 @@ import { VolumeControlComponent } from './volume-control/volume-control.componen
 import { DrumMachineComponent } from './drum-machine/drum-machine.component';
 import { PitchControlsComponent } from './pitch-controls/pitch-controls.component';
 import { SynthBankComponent } from './synth-bank/synth-bank.component';
+import { SynthControlsComponent } from './synth-controls/synth-controls.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +30,13 @@ import { SynthBankComponent } from './synth-bank/synth-bank.component';
     TransportComponent,
     FxBoxComponent,
     PatternGeneratorComponent,
-    MonosynthComponent,
+    SynthComponent,
     TitleComponent,
     VolumeControlComponent,
     DrumMachineComponent,
     PitchControlsComponent,
-    SynthBankComponent
+    SynthBankComponent,
+    SynthControlsComponent
   ],
   imports: [
     BrowserModule,
