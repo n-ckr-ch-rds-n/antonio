@@ -1,9 +1,6 @@
 import {Beatmap} from './beatmap';
-import {Mood} from './mood';
+import {PitchConfig} from './pitch.config';
 
-export interface GenerateNotesRequest {
-  key: string;
-  mood: Mood;
-  octave: number;
+export interface GenerateNotesRequest extends PitchConfig {
   beatmap: Beatmap;
 }
