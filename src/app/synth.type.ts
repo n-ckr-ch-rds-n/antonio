@@ -1,4 +1,5 @@
 export enum SynthType {
   Monosynth = 'monosynth',
-  Polysynth = 'polysynth'
+  Polysynth = 'polysynth',
+  FMSynth = 'fmsynth'
 }
