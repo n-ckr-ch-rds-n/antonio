@@ -1,2 +1,11 @@
-<app-volume-control [source]="synth"></app-volume-control><br>
-<app-pitch-controls [pitchConfig]="pitchConfig" (octaveChange)="octaveChange.emit($event)"></app-pitch-controls>
+<div class="synth-controls">
+  <div class="generic">
+    <app-volume-control [source]="synth"></app-volume-control>
+    <app-pitch-controls [pitchConfig]="pitchConfig"
+                        (octaveChange)="octaveChange.emit($event)"></app-pitch-controls>
+  </div>
+  <div class="custom">
+    <p>foobar</p>
+  </div>
+</div>
+

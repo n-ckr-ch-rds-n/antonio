@@ -1,0 +1,11 @@
+.synth-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.generic {
+  grid-column-start: 1;
+}
+.custom {
+  padding: 20px;
+  grid-column-start: 2;
+}
