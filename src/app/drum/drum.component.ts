@@ -7,6 +7,7 @@ import {SequenceService} from '../sequence.service';
 import {SequenceMode} from '../sequence.mode';
 import {GenerateNotesRequest} from '../generate.notes.request';
 import {MatCheckboxChange} from '@angular/material';
+import {Drumkit} from '../drum-machine/drumkit';
 
 @Component({
   selector: 'app-drum',
@@ -28,6 +29,9 @@ export class DrumComponent implements OnInit {
 
   @Input()
   sample: string;
+
+  @Input()
+  drumkit: Drumkit;
 
 
   constructor(private sequenceService: SequenceService) { }
@@ -53,7 +57,7 @@ export class DrumComponent implements OnInit {
 
   initialiseSampler(): Sampler {
     return new Tone.Sampler({
-      C1 : `../../assets/SequentialCircuits/${this.sample}.mp3`,
+      C1 : `../../assets/${this.drumkit}/${this.sample}.mp3`,
     }, () => {
       this.sequence.start(0);
     }).toMaster();

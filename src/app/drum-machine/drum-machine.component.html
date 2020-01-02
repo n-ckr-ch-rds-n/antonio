@@ -10,7 +10,7 @@
       </mat-select>
     </mat-form-field>
     <div *ngFor="let sample of samples[drumkit]">
-      <app-drum [sample]="sample"></app-drum>
+      <app-drum [drumkit]="drumkit" [sample]="sample"></app-drum>
     </div>
   </mat-expansion-panel>
 </mat-accordion>
