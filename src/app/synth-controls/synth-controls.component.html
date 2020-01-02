@@ -1,6 +1,7 @@
 <div class="synth-controls">
   <div class="generic">
-    <app-volume-control [source]="synth"></app-volume-control>
+    <app-volume-control [source]="synth"></app-volume-control><br>
+    <app-panner [source]="synth"></app-panner>
     <app-pitch-controls [pitchConfig]="pitchConfig"
                         (octaveChange)="octaveChange.emit($event)"></app-pitch-controls>
   </div>

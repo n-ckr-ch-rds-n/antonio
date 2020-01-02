@@ -24,6 +24,7 @@ import { SynthBankComponent } from './synth-bank/synth-bank.component';
 import { SynthControlsComponent } from './synth-controls/synth-controls.component';
 import { OscillatorComponent } from './oscillator/oscillator.component';
 import { EnveloperComponent } from './enveloper/enveloper.component';
+import { PannerComponent } from './panner/panner.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { EnveloperComponent } from './enveloper/enveloper.component';
     SynthBankComponent,
     SynthControlsComponent,
     OscillatorComponent,
-    EnveloperComponent
+    EnveloperComponent,
+    PannerComponent
   ],
   imports: [
     BrowserModule,
