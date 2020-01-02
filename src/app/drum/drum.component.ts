@@ -6,6 +6,7 @@ import {defaultPatternValues} from '../default.pattern.values';
 import cloneDeep from 'lodash/cloneDeep';
 import {SequenceService} from '../sequence.service';
 import {SequenceMode} from '../sequence.mode';
+import {GenerateNotesRequest} from '../generate.notes.request';
 
 @Component({
   selector: 'app-drum',
@@ -18,11 +19,16 @@ export class DrumComponent implements OnInit {
   sequence: Sequence;
   notes: any;
   octave = 1;
+  activeBeats = cloneDeep(defaultPatternValues);
+  notesRequest: GenerateNotesRequest = {
+    octave: this.octave,
+    mode: SequenceMode.Drum,
+    beatmap: this.activeBeats
+  };
 
   @Input()
   sample: string;
 
-  activeBeats = cloneDeep(defaultPatternValues);
 
   constructor(private transportService: TransportService,
               private sequenceService: SequenceService) { }
@@ -30,11 +36,7 @@ export class DrumComponent implements OnInit {
   ngOnInit() {
     // this.player = new Tone.Player(`../../assets/SequentialCircuits/${this.sample}.mp3`).toMaster();
     this.sampler = this.initialiseSampler();
-    this.notes = this.sequenceService.generateNotes({
-      octave: this.octave,
-      beatmap: this.activeBeats,
-      mode: SequenceMode.Drum
-    });
+    this.notes = this.sequenceService.generateNotes(this.notesRequest);
     this.sequence = this.sequenceService.generateSequence(this.sampler, this.notes);
     // this.sequence = new Tone.Sequence((time, note) => {
     //     this.sampler.triggerAttack(note);
@@ -57,6 +59,14 @@ export class DrumComponent implements OnInit {
     const beat = parseInt(values[1], 10);
     const sixteenth = Math.floor(parseInt(values[2], 10));
     return this.activeBeats[beat][sixteenth];
+  }
+
+  regenerateSequence() {
+    this.sequence.stop(0);
+    this.notes = this.sequenceService.generateNotes(this.notesRequest);
+    console.log(this.notes);
+    this.sequence = this.sequenceService.generateSequence(this.sampler, this.notes);
+    this.sequence.start(0);
   }
 
   initialiseSampler(): Sampler {
