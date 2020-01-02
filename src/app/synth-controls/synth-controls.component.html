@@ -1,1 +1,2 @@
-<p>synth-controls works!</p>
+<app-volume-control [source]="synth"></app-volume-control><br>
+<app-pitch-controls [pitchConfig]="pitchConfig" (octaveChange)="octaveChange.emit($event)"></app-pitch-controls>
