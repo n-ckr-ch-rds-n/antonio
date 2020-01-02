@@ -1,7 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Instrument, Player} from 'tone';
+import {Effect, Instrument, Player} from 'tone';
 import {FxService} from '../fx.service';
 import {MatCheckboxChange} from '@angular/material';
+import {EffectType} from '../effect.type';
+
 
 @Component({
   selector: 'app-fx-box',
@@ -9,28 +11,34 @@ import {MatCheckboxChange} from '@angular/material';
   styleUrls: ['./fx-box.component.scss']
 })
 export class FxBoxComponent implements OnInit {
+  EffectType = EffectType;
+  fxBank: Record<string, Effect> = {
+    [EffectType.Delay]: undefined,
+    [EffectType.Distortion]: undefined,
+    [EffectType.Reverb]: undefined
+  };
+
   @Input()
   source: Player | Instrument;
 
-  activeFX: Array<{name: string, effect: any}> = [];
 
   constructor(private fxService: FxService) { }
 
   ngOnInit() {
   }
 
-  async connect(effectName: string) {
+  async connect(effectName: EffectType) {
     const effect = await this.fxService.createEffect(effectName);
-    this.activeFX.push({name: effectName, effect});
+    this.fxBank[effectName] = effect;
     this.source.connect(effect);
   }
 
   disconnect(effectName: string) {
-    this.source.disconnect((this.activeFX.find(effect => effect.name === effectName)).effect);
-    this.activeFX = this.activeFX.filter(effect => effect.name !== effectName);
+    this.source.disconnect(this.fxBank[effectName]);
+    this.fxBank[effectName] = undefined;
   }
 
   async fxChange(event: MatCheckboxChange): Promise<void> {
-    event.checked ? await this.connect(event.source.name) : this.disconnect(event.source.name);
+    event.checked ? await this.connect(event.source.name as EffectType) : this.disconnect(event.source.name);
   }
 }

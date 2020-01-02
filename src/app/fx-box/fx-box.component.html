@@ -1,15 +1,15 @@
 <div class="fx-box">
   <div class="fx">
     <label>Delay: </label>
-    <mat-checkbox name="delay" (change)="fxChange($event)"></mat-checkbox><br>
+    <mat-checkbox name="{{EffectType.Delay}}" (change)="fxChange($event)"></mat-checkbox><br>
   </div>
   <div>
     <label>Distortion: </label>
-    <mat-checkbox name="distortion" (change)="fxChange($event)"></mat-checkbox><br>
+    <mat-checkbox name="{{EffectType.Distortion}}" (change)="fxChange($event)"></mat-checkbox><br>
   </div>
   <div>
     <label>Reverb: </label>
-    <mat-checkbox name="reverb" (change)="fxChange($event)"></mat-checkbox><br>
+    <mat-checkbox name="{{EffectType.Reverb}}" (change)="fxChange($event)"></mat-checkbox><br>
   </div>
 </div>
 
