@@ -13,8 +13,13 @@ export class SequenceService {
 
   constructor() { }
 
-  addOrRemoveNote(noteEvent: {beat: string, sixteenth: string}, request: GenerateNotesRequest) {
-
+  addOrRemoveNote(noteEvent: {beat: string, sixteenth: string, currentNotes: Array<any>}, request: GenerateNotesRequest) {
+    const beat = parseInt(noteEvent.beat, 10);
+    const sixteenth = parseInt(noteEvent.sixteenth, 10);
+    noteEvent.currentNotes[beat][sixteenth] = noteEvent.currentNotes[beat][sixteenth] === null
+      ? this.generateNote(request)
+      : null;
+    return noteEvent.currentNotes;
   }
 
   generateNotes(request: GenerateNotesRequest) {
@@ -23,6 +28,8 @@ export class SequenceService {
       Object.keys(request.beatmap[beat]).forEach(sixteenth => {
         if (request.beatmap[beat][sixteenth]) {
           notes.push(this.generateNote(request));
+        } else {
+          notes.push(null);
         }
       });
       return notes;

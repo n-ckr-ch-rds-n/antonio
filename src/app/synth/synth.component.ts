@@ -47,13 +47,11 @@ export class SynthComponent implements OnInit {
     this.sequence.start(0);
   }
 
-  regenerateSequence(event?: {beat: string, sixteenth: string}) {
+  regenerateSequence(noteEvent?: {beat: string, sixteenth: string}) {
     this.sequence.stop(0);
-    if (event.beat) {
-      this.notes = this.sequenceService.addOrRemoveNote(event, this.notesRequest);
-    } else {
-      this.notes = this.sequenceService.generateNotes(this.notesRequest);
-    }
+    this.notes = noteEvent
+      ? this.sequenceService.addOrRemoveNote({...noteEvent, currentNotes: this.notes}, this.notesRequest)
+      : this.sequenceService.generateNotes(this.notesRequest);
     this.sequence = this.sequenceService.generateSequence(this.synth, this.notes);
     this.sequence.start(0);
   }
