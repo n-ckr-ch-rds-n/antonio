@@ -10,6 +10,7 @@ import {EffectType} from '../effect.type';
 })
 export class DelayComponent implements OnInit {
   EffectType = EffectType;
+  delayFields: string[] = ['delayTime', 'feedback'];
 
   @Input()
   delay: PingPongDelay;

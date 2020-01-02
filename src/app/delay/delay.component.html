@@ -1,2 +1,11 @@
 <label>{{EffectType.Delay | titlecase}}: </label>
 <mat-checkbox name="{{EffectType.Delay}}" (change)="delayChange.emit($event)"></mat-checkbox><br>
+<mat-slider *ngFor="let field of delayFields"
+            [min]="0.01"
+            [max]="1"
+            [value]="delay ? delay[field] : 0"
+            [disabled]="!delay"
+            [step]="0.01"
+            (change)="delay[field].value = $event.value"
+            matTooltip="{{field | titlecase}}"
+            [matTooltipPosition]="'above'"></mat-slider><br>

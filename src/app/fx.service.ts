@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import * as Tone from 'tone';
 import {EffectType} from './effect.type';
+import {Effect} from 'tone';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FxService {
 
-  private creator = {
+  private creator: Record<string, () => Effect> = {
     [EffectType.Delay]: () => new Tone.PingPongDelay('16n', 0.2).toMaster(),
     [EffectType.Distortion]: () => new Tone.Distortion(0.8).toMaster(),
     [EffectType.Reverb]: async () => {

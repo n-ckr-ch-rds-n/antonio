@@ -1,11 +1,11 @@
-<div class="synth-controls">
-  <div class="generic">
+<div class="control-grid">
+  <div class="col-1">
     <app-volume-control [source]="synth"></app-volume-control><br>
     <app-panner [source]="synth"></app-panner>
     <app-pitch-controls [pitchConfig]="pitchConfig"
                         (octaveChange)="octaveChange.emit($event)"></app-pitch-controls>
   </div>
-  <div class="custom">
+  <div class="col-2">
     <ng-container *ngIf="[SynthType.FMSynth, SynthType.Monosynth, SynthType.MembraneSynth].includes(synthType)">
       <app-oscillator [oscillator]="synth.oscillator"></app-oscillator>
       <app-enveloper [envelope]="synth.envelope"></app-enveloper>

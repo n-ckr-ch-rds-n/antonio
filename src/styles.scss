@@ -11,3 +11,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin: 10px;
   width: 30%;
 }
+
+.control-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .col-1 {
+    padding: 1rem;
+    grid-column-start: 1;
+  }
+  .col-2 {
+    padding: 1rem;
+    grid-column-start: 2;
+  }
+}
