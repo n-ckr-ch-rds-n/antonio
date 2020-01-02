@@ -27,18 +27,19 @@ export class FxBoxComponent implements OnInit {
   ngOnInit() {
   }
 
-  async connect(effectName: EffectType) {
-    const effect = await this.fxService.createEffect(effectName);
-    this.fxBank[effectName] = effect;
+  async connect(effectType: EffectType) {
+    const effect = await this.fxService.createEffect(effectType);
+    this.fxBank[effectType] = effect;
     this.source.connect(effect);
   }
 
-  disconnect(effectName: string) {
-    this.source.disconnect(this.fxBank[effectName]);
-    this.fxBank[effectName] = undefined;
+  disconnect(effectType: string) {
+    this.source.disconnect(this.fxBank[effectType]);
+    this.fxBank[effectType] = undefined;
   }
 
   async fxChange(event: MatCheckboxChange): Promise<void> {
-    event.checked ? await this.connect(event.source.name as EffectType) : this.disconnect(event.source.name);
+    const effectType = event.source.name as EffectType;
+    event.checked ? await this.connect(effectType) : this.disconnect(effectType);
   }
 }
