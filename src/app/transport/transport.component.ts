@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TransportService} from '../transport.service';
+import * as Tone from 'tone';
 
 @Component({
   selector: 'app-transport',
@@ -9,6 +10,7 @@ import {TransportService} from '../transport.service';
 export class TransportComponent implements OnInit {
   Math = Math;
   playing: boolean;
+  recording: boolean;
 
   constructor(public transportService: TransportService) {
   }
@@ -16,13 +18,14 @@ export class TransportComponent implements OnInit {
   ngOnInit() {
   }
 
-  playButtonClick() {
+  playButtonClick(): Tone.Transport {
     this.playing = !this.playing;
-    if (this.playing) {
-      this.transportService.play();
-    } else {
-      this.transportService.stop();
-    }
+    return this.playing
+      ? this.transportService.play()
+      : this.transportService.stop();
+  }
+
+  recordButtonClick() {
   }
 
   tempoChange(event: any) {

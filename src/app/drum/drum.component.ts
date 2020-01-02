@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as Tone from 'tone';
-import {Player, Sampler, Sequence} from 'tone';
+import {Sampler, Sequence} from 'tone';
 import {defaultPatternValues} from '../default.pattern.values';
 import cloneDeep from 'lodash/cloneDeep';
 import {SequenceService} from '../sequence.service';
