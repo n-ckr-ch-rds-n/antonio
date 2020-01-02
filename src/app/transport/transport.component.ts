@@ -10,7 +10,7 @@ import * as Tone from 'tone';
 export class TransportComponent implements OnInit {
   Math = Math;
   playing: boolean;
-  recording: boolean;
+  recording = false;
 
   constructor(public transportService: TransportService) {
   }
@@ -28,8 +28,8 @@ export class TransportComponent implements OnInit {
   async recordButtonClick(): Promise<void> {
     this.recording = !this.recording;
     return this.recording
-      ? this.transportService.stopRecording()
-      : this.transportService.record();
+      ? await this.transportService.record()
+      : await this.transportService.stopRecording();
   }
 
   tempoChange(event: any) {

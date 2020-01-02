@@ -26,6 +26,15 @@ export class TransportService {
 
   async stopRecording() {
     this.recorder.stop();
+    await this.downloadRecording();
+  }
+
+  async downloadRecording() {
+    const blob = new Blob(this.recordData, {type: 'audio/ogg; codecs=opus'});
+    const link = document.createElement('a') as HTMLAnchorElement;
+    link.href = URL.createObjectURL(blob);
+    link.download = `antonio-${Math.random().toString(36).substring(7)}`;
+    link.click();
   }
 
   async createRecorder(): Promise<MediaRecorder> {
