@@ -17,6 +17,7 @@ export class DrumComponent implements OnInit {
   sampler: Sampler;
   sequence: Sequence;
   notes: any;
+  octave = 1;
 
   @Input()
   sample: string;
@@ -29,7 +30,7 @@ export class DrumComponent implements OnInit {
   ngOnInit() {
     // this.player = new Tone.Player(`../../assets/SequentialCircuits/${this.sample}.mp3`).toMaster();
     const notes = [['C1', 'C2'], ['C1'], ['C1'], ['C1']];
-    this.notes = this.sequenceService.generateNotes()
+    this.notes = this.sequenceService.generateNotes({octave: this.octave, beatmap: this.activeBeats, mode: 'drum'});
     this.sampler = new Tone.Sampler({
       C1 : `../../assets/SequentialCircuits/${this.sample}.mp3`,
     }, () => {

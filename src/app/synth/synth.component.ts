@@ -58,6 +58,7 @@ export class SynthComponent implements OnInit {
   private toGenerateNotesRequest(): GenerateNotesRequest {
     return {
       ...this.pitchConfig,
+      mode: 'synth',
       beatmap: this.activeBeats
     };
   }
