@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PitchConfig} from '../pitch.config';
 import {Instrument} from 'tone';
+import {SynthType} from '../synth.type';
 
 @Component({
   selector: 'app-synth-controls',
@@ -8,11 +9,16 @@ import {Instrument} from 'tone';
   styleUrls: ['./synth-controls.component.scss']
 })
 export class SynthControlsComponent implements OnInit {
+  SynthType = SynthType;
+
   @Input()
   pitchConfig: PitchConfig;
 
   @Input()
   synth: Instrument;
+
+  @Input()
+  synthType: SynthType;
 
   @Output()
   octaveChange = new EventEmitter<number>();

@@ -5,7 +5,9 @@
                         (octaveChange)="octaveChange.emit($event)"></app-pitch-controls>
   </div>
   <div class="custom">
-    <p>foobar</p>
+    <app-oscillator *ngIf="[SynthType.FMSynth, SynthType.Monosynth, SynthType.MembraneSynth].includes(synthType)"
+                    [oscillator]="synth.oscillator">
+    </app-oscillator>
   </div>
 </div>
 

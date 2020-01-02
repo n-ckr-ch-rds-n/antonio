@@ -22,6 +22,7 @@ import { DrumMachineComponent } from './drum-machine/drum-machine.component';
 import { PitchControlsComponent } from './pitch-controls/pitch-controls.component';
 import { SynthBankComponent } from './synth-bank/synth-bank.component';
 import { SynthControlsComponent } from './synth-controls/synth-controls.component';
+import { OscillatorComponent } from './oscillator/oscillator.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SynthControlsComponent } from './synth-controls/synth-controls.componen
     DrumMachineComponent,
     PitchControlsComponent,
     SynthBankComponent,
-    SynthControlsComponent
+    SynthControlsComponent,
+    OscillatorComponent
   ],
   imports: [
     BrowserModule,

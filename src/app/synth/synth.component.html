@@ -2,6 +2,7 @@
   <h2>{{synthType | titlecase}}</h2>
   <div class="container">
     <div><app-synth-controls [synth]="synth"
+                             [synthType]="synthType"
                              [pitchConfig]="pitchConfig"
                              (octaveChange)="octaveChange($event)"></app-synth-controls></div>
     <div><app-fx-box [source]="synth"></app-fx-box></div>

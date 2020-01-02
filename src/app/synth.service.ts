@@ -10,7 +10,6 @@ export class SynthService {
 
   private creator: Record<string, () => Instrument> = {
     [SynthType.Monosynth]: () => new Tone.MonoSynth().toMaster(),
-    [SynthType.Polysynth]: () => new Tone.PolySynth().toMaster(),
     [SynthType.FMSynth]: () => new Tone.FMSynth().toMaster(),
     [SynthType.MembraneSynth]: () => new Tone.MembraneSynth().toMaster(),
     [SynthType.PluckSynth]: () => new Tone.PluckSynth().toMaster(),
