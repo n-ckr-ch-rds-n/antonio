@@ -1,7 +1,6 @@
 <div class="fx-box">
   <div class="fx">
-    <label>Delay: </label>
-    <mat-checkbox name="{{EffectType.Delay}}" (change)="fxChange($event)"></mat-checkbox><br>
+    <app-delay [delay]="fxBank[EffectType.Delay]" (delayChange)="fxChange($event)"></app-delay>
   </div>
   <div>
     <label>Distortion: </label>

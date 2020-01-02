@@ -20,7 +20,6 @@ export class FxService {
   constructor() { }
 
   async createEffect(effectType: EffectType) {
-    console.log(effectType);
     return await this.creator[effectType]();
   }
 }

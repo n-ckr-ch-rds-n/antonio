@@ -27,13 +27,13 @@ export class FxBoxComponent implements OnInit {
   ngOnInit() {
   }
 
-  async connect(effectType: EffectType) {
+  async connect(effectType: EffectType): void {
     const effect = await this.fxService.createEffect(effectType);
     this.fxBank[effectType] = effect;
     this.source.connect(effect);
   }
 
-  disconnect(effectType: string) {
+  disconnect(effectType: EffectType): void {
     this.source.disconnect(this.fxBank[effectType]);
     this.fxBank[effectType] = undefined;
   }
