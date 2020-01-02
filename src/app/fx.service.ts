@@ -8,7 +8,7 @@ import {Effect} from 'tone';
 })
 export class FxService {
 
-  private creator: Record<string, () => Effect> = {
+  private creator: Record<string, () => Effect | Promise<Effect>> = {
     [EffectType.Delay]: () => new Tone.PingPongDelay('16n', 0.2).toMaster(),
     [EffectType.Distortion]: () => new Tone.Distortion(0.8).toMaster(),
     [EffectType.Reverb]: async () => {

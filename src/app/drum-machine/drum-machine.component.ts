@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Drumkit} from './drumkit';
 
 @Component({
   selector: 'app-drum-machine',
@@ -6,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./drum-machine.component.scss']
 })
 export class DrumMachineComponent implements OnInit {
-  samples = ['kick', 'clap', 'snare', 'closehat', 'crash', 'openhat', 'tom1', 'tom2'];
+  Object = Object;
+  Drumkit = Drumkit;
+  drumkit: Drumkit = Drumkit.SequentialCircuits;
+
+  samples = {
+    [Drumkit.SequentialCircuits]: ['kick', 'clap', 'snare', 'closehat', 'crash', 'openhat', 'tom1', 'tom2']
+  };
 
   constructor() { }
 

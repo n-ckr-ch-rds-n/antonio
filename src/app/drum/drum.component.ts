@@ -15,7 +15,7 @@ import {MatCheckboxChange} from '@angular/material';
 })
 export class DrumComponent implements OnInit {
   sampler: Sampler;
-  sequence: Sequence;
+  sequence: Sequence<any>;
   notes: any;
   octave = 1;
   reversed = false;
@@ -39,7 +39,7 @@ export class DrumComponent implements OnInit {
   }
 
   reverseSample(event: MatCheckboxChange) {
-    const buffer = this.sampler._buffers._buffers[24];
+    const buffer = (this.sampler as any)._buffers._buffers[24];
     buffer.reverse = event.checked;
     this.reversed = event.checked;
   }

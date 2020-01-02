@@ -3,7 +3,13 @@
     <mat-expansion-panel-header>
       DRUM MACHINE
     </mat-expansion-panel-header>
-    <div *ngFor="let sample of samples">
+    <mat-form-field>
+      <mat-label>Drum Kit:</mat-label>
+      <mat-select (valueChange)="drumkit = $event" [value]="drumkit">
+        <mat-option *ngFor="let kit of Object.values(Drumkit)" [value]="kit">{{kit}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div *ngFor="let sample of samples[drumkit]">
       <app-drum [sample]="sample"></app-drum>
     </div>
   </mat-expansion-panel>
