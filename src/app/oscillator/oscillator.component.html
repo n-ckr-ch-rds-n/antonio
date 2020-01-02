@@ -1,6 +1,6 @@
 <mat-form-field>
   <mat-label>Oscillator:</mat-label>
   <mat-select (valueChange)="oscillator.type = $event" [value]="oscillator.type">
-    <mat-option *ngFor="let type of oscillatorTypes" [value]="type">{{type}}</mat-option>
+    <mat-option *ngFor="let type of oscillatorTypes" [value]="type">{{type | titlecase}}</mat-option>
   </mat-select>
 </mat-form-field>

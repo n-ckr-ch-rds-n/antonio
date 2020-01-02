@@ -1,0 +1,9 @@
+<label>Envelope: </label>
+<mat-slider *ngFor="let field of envelopeFields"
+            [min]="0.01"
+            [max]="1"
+            [value]="envelope[field]"
+            [step]="0.01"
+            (change)="envelope[field] = $event.value"
+            matTooltip="{{field | titlecase}}"
+            [matTooltipPosition]="'after'"></mat-slider>

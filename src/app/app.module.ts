@@ -15,7 +15,7 @@ import {
   MatDividerModule, MatExpansionModule,
   MatFormFieldModule,
   MatInputModule, MatSelectModule, MatSliderModule,
-  MatToolbarModule
+  MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 import { VolumeControlComponent } from './volume-control/volume-control.component';
 import { DrumMachineComponent } from './drum-machine/drum-machine.component';
@@ -55,7 +55,8 @@ import { EnveloperComponent } from './enveloper/enveloper.component';
     MatCardModule,
     MatSliderModule,
     MatSelectModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
