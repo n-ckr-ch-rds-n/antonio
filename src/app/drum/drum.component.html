@@ -4,8 +4,8 @@
     <div>
       <app-volume-control [source]="sampler"></app-volume-control><br>
       <app-panner [source]="sampler"></app-panner>
-      <!--<div><label>Reverse: </label>-->
-        <!--<mat-checkbox name="reverse" [value]="player.reverse" (change)="player.reverse = $event.checked"></mat-checkbox></div>-->
+      <div><label>Reverse: </label>
+        <mat-checkbox name="reverse" [value]="reversed" (change)="reverseSample($event)"></mat-checkbox></div>
     </div>
     <div>
       <app-fx-box [source]="sampler"></app-fx-box>
