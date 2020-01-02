@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as Tone from 'tone';
-import {Instrument, Player, Sampler, Sequence} from 'tone';
-import {TransportService} from '../transport.service';
+import {Player, Sampler, Sequence} from 'tone';
 import {defaultPatternValues} from '../default.pattern.values';
 import cloneDeep from 'lodash/cloneDeep';
 import {SequenceService} from '../sequence.service';
@@ -15,7 +14,6 @@ import {MatCheckboxChange} from '@angular/material';
   styleUrls: ['./drum.component.scss']
 })
 export class DrumComponent implements OnInit {
-  player: Player;
   sampler: Sampler;
   sequence: Sequence;
   notes: any;

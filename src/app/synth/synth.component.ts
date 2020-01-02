@@ -22,28 +22,38 @@ export class SynthComponent implements OnInit {
     octave: 1,
     mood: Mood.Major
   };
-
-  @Input()
-  synthType: SynthType;
-
   synth: Instrument;
   activeBeats: Beatmap = cloneDeep(defaultPatternValues);
   notes: Array<string[]>;
   sequence: Sequence<any>;
+  notesRequest: GenerateNotesRequest = {
+    ...this.pitchConfig,
+    mode: SequenceMode.Synth,
+    beatmap: this.activeBeats
+  };
+
+  @Input()
+  synthType: SynthType;
+
+
 
   constructor(private sequenceService: SequenceService,
               private synthService: SynthService) { }
 
   ngOnInit() {
     this.synth = this.synthService.create(this.synthType);
-    this.notes = this.sequenceService.generateNotes(this.toGenerateNotesRequest());
+    this.notes = this.sequenceService.generateNotes(this.notesRequest);
     this.sequence = this.sequenceService.generateSequence(this.synth, this.notes);
     this.sequence.start(0);
   }
 
-  regenerateSequence() {
+  regenerateSequence(event?: {beat: string, sixteenth: string}) {
     this.sequence.stop(0);
-    this.notes = this.sequenceService.generateNotes(this.toGenerateNotesRequest());
+    if (event.beat) {
+      this.notes = this.sequenceService.addOrRemoveNote(event, this.notesRequest);
+    } else {
+      this.notes = this.sequenceService.generateNotes(this.notesRequest);
+    }
     this.sequence = this.sequenceService.generateSequence(this.synth, this.notes);
     this.sequence.start(0);
   }
@@ -56,11 +66,4 @@ export class SynthComponent implements OnInit {
     this.sequence.start(0);
   }
 
-  private toGenerateNotesRequest(): GenerateNotesRequest {
-    return {
-      ...this.pitchConfig,
-      mode: SequenceMode.Synth,
-      beatmap: this.activeBeats
-    };
-  }
 }

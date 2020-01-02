@@ -7,7 +7,7 @@
                              (octaveChange)="octaveChange($event)"></app-synth-controls></div>
     <div><app-fx-box [source]="synth"></app-fx-box></div>
     <div><app-pattern-generator [activeBeats]="activeBeats"
-                                (patternChange)="regenerateSequence()"></app-pattern-generator></div>
+                                (patternChange)="regenerateSequence($event)"></app-pattern-generator></div>
   </div>
 </mat-card>
 

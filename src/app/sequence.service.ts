@@ -13,6 +13,10 @@ export class SequenceService {
 
   constructor() { }
 
+  addOrRemoveNote(noteEvent: {beat: string, sixteenth: string}, request: GenerateNotesRequest) {
+
+  }
+
   generateNotes(request: GenerateNotesRequest) {
     return Object.keys(request.beatmap).map(beat => {
       const notes = [];

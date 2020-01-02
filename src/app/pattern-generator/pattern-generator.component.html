@@ -12,7 +12,7 @@
       <div *ngFor="let beat of activeBeats | keyvalue">
         <ng-container *ngFor="let sixteenth of beat.value | keyvalue">
           <mat-checkbox color="accent" [(ngModel)]="activeBeats[beat.key][sixteenth.key]"
-                        (change)="patternChange.emit()"></mat-checkbox>
+                        (change)="patternChange.emit({beat: beat.key, sixteenth: sixteenth.key})"></mat-checkbox>
         </ng-container>
       </div>
     </div>
