@@ -2,7 +2,8 @@
   <h2>{{sample | titlecase}}</h2>
   <div class="container">
     <div>
-      <app-volume-control [source]="player"></app-volume-control>
+      <app-volume-control [source]="player"></app-volume-control><br>
+      <app-panner [source]="player"></app-panner>
       <div><label>Reverse: </label>
         <mat-checkbox name="reverse" [value]="player.reverse" (change)="player.reverse = $event.checked"></mat-checkbox></div>
     </div>
