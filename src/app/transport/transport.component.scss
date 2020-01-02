@@ -4,4 +4,10 @@
 
 .transport {
   display: flex;
+  padding: 1rem;
+  justify-content: flex-start;
+
+  * {
+    margin: 1rem;
+  }
 }

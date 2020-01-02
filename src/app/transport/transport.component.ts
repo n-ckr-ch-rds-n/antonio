@@ -15,7 +15,7 @@ export class TransportComponent implements OnInit {
   constructor(public transportService: TransportService) {
   }
 
-  ngOnInit() {
+  async ngOnInit() {
   }
 
   playButtonClick(): Tone.Transport {
@@ -25,7 +25,11 @@ export class TransportComponent implements OnInit {
       : this.transportService.stop();
   }
 
-  recordButtonClick() {
+  async recordButtonClick(): Promise<void> {
+    this.recording = !this.recording;
+    return this.recording
+      ? this.transportService.stopRecording()
+      : this.transportService.record();
   }
 
   tempoChange(event: any) {
