@@ -2,13 +2,13 @@
   <h2>{{sample | titlecase}}</h2>
   <div class="container">
     <div>
-      <app-volume-control [source]="player"></app-volume-control><br>
-      <app-panner [source]="player"></app-panner>
-      <div><label>Reverse: </label>
-        <mat-checkbox name="reverse" [value]="player.reverse" (change)="player.reverse = $event.checked"></mat-checkbox></div>
+      <app-volume-control [source]="sampler"></app-volume-control><br>
+      <app-panner [source]="sampler"></app-panner>
+      <!--<div><label>Reverse: </label>-->
+        <!--<mat-checkbox name="reverse" [value]="player.reverse" (change)="player.reverse = $event.checked"></mat-checkbox></div>-->
     </div>
     <div>
-      <app-fx-box [source]="player"></app-fx-box>
+      <app-fx-box [source]="sampler"></app-fx-box>
     </div>
     <div>
       <app-pattern-generator [activeBeats]="activeBeats"></app-pattern-generator>

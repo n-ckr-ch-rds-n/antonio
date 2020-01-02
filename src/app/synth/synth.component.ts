@@ -9,6 +9,7 @@ import {GenerateNotesRequest} from '../generate.notes.request';
 import {PitchConfig} from '../pitch.config';
 import {SynthService} from '../synth.service';
 import {SynthType} from '../synth.type';
+import {SequenceMode} from '../sequence.mode';
 
 @Component({
   selector: 'app-monosynth',
@@ -58,7 +59,7 @@ export class SynthComponent implements OnInit {
   private toGenerateNotesRequest(): GenerateNotesRequest {
     return {
       ...this.pitchConfig,
-      mode: 'synth',
+      mode: SequenceMode.Synth,
       beatmap: this.activeBeats
     };
   }

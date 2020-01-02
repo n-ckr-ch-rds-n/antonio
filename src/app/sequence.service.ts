@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import {notesByKey} from './pattern-generator/notes.by.key';
+import {Injectable} from '@angular/core';
 import sample from 'lodash/sample';
-import {Beatmap} from './beatmap';
 import {GenerateNotesRequest} from './generate.notes.request';
 import * as Tone from 'tone';
-import {Instrument, Player, Sampler, Sequence} from 'tone';
+import {Instrument, Sampler, Sequence} from 'tone';
+import {SequenceMode} from './sequence.mode';
+import {notesByKey} from './pattern-generator/notes.by.key';
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +26,9 @@ export class SequenceService {
   }
 
   generateNote(request: GenerateNotesRequest): string {
-    const possibilities = notesByKey[request.key][request.mood]
-      .map(note => `${note}${request.octave}`);
+    const possibilities = request.mode === SequenceMode.Synth
+      ? notesByKey[request.key][request.mood].map(note => `${note}${request.octave}`)
+      : [`C${request.octave}`];
     return sample(possibilities);
   }
 
