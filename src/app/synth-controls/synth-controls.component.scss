@@ -3,9 +3,10 @@
   grid-template-columns: 1fr 1fr;
 }
 .generic {
+  padding: 1rem;
   grid-column-start: 1;
 }
 .custom {
-  padding: 20px;
+  padding: 1rem;
   grid-column-start: 2;
 }
