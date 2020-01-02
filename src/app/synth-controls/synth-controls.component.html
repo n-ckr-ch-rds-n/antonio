@@ -5,9 +5,10 @@
                         (octaveChange)="octaveChange.emit($event)"></app-pitch-controls>
   </div>
   <div class="custom">
-    <app-oscillator *ngIf="[SynthType.FMSynth, SynthType.Monosynth, SynthType.MembraneSynth].includes(synthType)"
-                    [oscillator]="synth.oscillator">
-    </app-oscillator>
+    <ng-container *ngIf="[SynthType.FMSynth, SynthType.Monosynth, SynthType.MembraneSynth].includes(synthType)">
+      <app-oscillator [oscillator]="synth.oscillator"></app-oscillator>
+      <app-enveloper [envelope]="synth.envelope"></app-enveloper>
+    </ng-container>
   </div>
 </div>
 
