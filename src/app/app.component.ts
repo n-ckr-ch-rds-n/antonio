@@ -11,6 +11,5 @@ export class AppComponent implements OnInit {
 
   async ngOnInit() {
     await (Tone.context as any as AudioContext).resume();
-    console.log(Tone.context);
   }
 }
