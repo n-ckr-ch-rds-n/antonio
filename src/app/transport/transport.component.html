@@ -1,9 +1,13 @@
 <mat-card>
   <div class="transport">
-    <button mat-flat-button color="{{playing ? 'accent' : 'primary'}}" (click)="playButtonClick()">
-      {{playing ? 'Stop' : 'Play'}}</button>
-    <button mat-flat-button color="{{recording ? 'accent': 'warn'}}" (click)="recordButtonClick()">
-      {{recording ? 'Stop' : 'Record'}}</button>
+    <div>
+      <button mat-flat-button color="{{playing ? 'accent' : 'primary'}}" (click)="playButtonClick()">
+        {{playing ? 'Stop' : 'Play'}}</button>
+    </div>
+    <div>
+      <button mat-flat-button color="{{recording ? 'accent': 'warn'}}" (click)="recordButtonClick()">
+        {{recording ? 'Stop' : 'Record'}}</button>
+    </div>
     <mat-form-field hintLabel="BPM">
       <input matInput type="number" name="bpm" min="1" max="500" step="1"
              [value]="Math.floor(transportService.transport.bpm.value)" (change)="tempoChange($event)">
