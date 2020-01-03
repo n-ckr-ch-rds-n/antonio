@@ -1,4 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {PatternService} from '../pattern.service';
+import {PatternMode} from '../pattern.mode';
 
 @Component({
   selector: 'app-pattern-generator',
@@ -6,23 +8,21 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./pattern-generator.component.scss']
 })
 export class PatternGeneratorComponent implements OnInit {
+  PatternMode = PatternMode;
+
   @Input()
   activeBeats: any;
 
   @Output()
   patternChange = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(private patternService: PatternService) { }
 
   ngOnInit() {
   }
 
-  generatePattern(clear?: boolean) {
-    Object.keys(this.activeBeats).forEach(beat => {
-      Object.keys(this.activeBeats[beat]).forEach(sixteenth => {
-        this.activeBeats[beat][sixteenth] = clear ? false : Math.random() > 0.5;
-      });
-    });
+  generatePattern(mode?: PatternMode) {
+    this.patternService.generatePattern(this.activeBeats, mode);
     this.patternChange.emit();
   }
 
