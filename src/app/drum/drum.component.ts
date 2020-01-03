@@ -8,6 +8,7 @@ import {SequenceMode} from '../sequence.mode';
 import {GenerateNotesRequest} from '../generate.notes.request';
 import {MatCheckboxChange} from '@angular/material';
 import {Drumkit} from '../drum-machine/drumkit';
+import {PatternService} from '../pattern.service';
 
 @Component({
   selector: 'app-drum',
@@ -34,12 +35,16 @@ export class DrumComponent implements OnInit {
   drumkit: Drumkit;
 
 
-  constructor(private sequenceService: SequenceService) { }
+  constructor(private sequenceService: SequenceService,
+              private patternService: PatternService) { }
 
   ngOnInit() {
     this.sampler = this.initialiseSampler();
     this.notes = this.sequenceService.generateNotes(this.notesRequest);
     this.sequence = this.sequenceService.generateSequence(this.sampler, this.notes);
+    this.patternService.patternChange.subscribe(() => {
+      this.regenerateSequence();
+    });
   }
 
   reverseSample(event: MatCheckboxChange) {

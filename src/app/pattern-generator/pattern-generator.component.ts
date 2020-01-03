@@ -13,9 +13,6 @@ export class PatternGeneratorComponent implements OnInit {
   @Input()
   activeBeats: any;
 
-  @Output()
-  patternChange = new EventEmitter<any>();
-
   constructor(private patternService: PatternService) { }
 
   ngOnInit() {
@@ -23,7 +20,10 @@ export class PatternGeneratorComponent implements OnInit {
 
   generatePattern(mode?: PatternMode) {
     this.patternService.generatePattern(this.activeBeats, mode);
-    this.patternChange.emit();
+  }
+
+  perform(noteEvent?: {beat: string, sixteenth: string}) {
+    this.patternService.patternChange.emit(noteEvent);
   }
 
 }
