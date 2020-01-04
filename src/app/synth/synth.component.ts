@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Instrument, Sequence} from 'tone';
+import {Instrument, Sequence, Synth} from 'tone';
 import cloneDeep from 'lodash/cloneDeep';
 import {defaultPatternValues} from '../default.pattern.values';
 import {Mood} from '../mood';
@@ -48,20 +48,18 @@ export class SynthComponent implements OnInit {
     this.sequence = this.sequenceService.generateSequence(this.synth, this.notes);
     this.sequence.start(0);
     this.patternService.patternChange.subscribe((noteEvent) => {
-      if (noteEvent) {
-        if (noteEvent.source === this.synth) {
-          this.regenerateSequence(noteEvent);
-        }
-      } else {
-        this.regenerateSequence();
+      if (noteEvent.source === this.synth) {
+        this.regenerateSequence(noteEvent);
       }
     });
   }
 
-  regenerateSequence(noteEvent?: {beat: string, sixteenth: string}) {
+  regenerateSequence(noteEvent?: {beat: string, sixteenth: string, source: Synth}) {
     this.sequence.stop(0);
-    this.notes = noteEvent
-      ? this.sequenceService.addOrRemoveNote({...noteEvent, currentNotes: this.notes}, this.notesRequest)
+    this.notes = noteEvent.beat
+      ? this.sequenceService.addOrRemoveNote({
+        beat: noteEvent.beat, sixteenth: noteEvent.sixteenth, currentNotes: this.notes
+      }, this.notesRequest)
       : this.sequenceService.generateNotes(this.notesRequest);
     this.sequence = this.sequenceService.generateSequence(this.synth, this.notes);
     this.sequence.start(0);

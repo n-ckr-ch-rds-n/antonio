@@ -23,7 +23,7 @@ export class PatternGeneratorComponent implements OnInit {
   }
 
   generatePattern(mode?: PatternMode) {
-    this.patternService.generatePattern(this.activeBeats, mode);
+    this.patternService.generatePattern(this.activeBeats, mode, this.source);
   }
 
   perform(noteEvent?: {beat: string, sixteenth: string, source: Synth}) {

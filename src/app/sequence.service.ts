@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import sample from 'lodash/sample';
 import {GenerateNotesRequest} from './generate.notes.request';
 import * as Tone from 'tone';
-import {Instrument, Sampler, Sequence} from 'tone';
+import {Instrument, Sampler, Sequence, Synth} from 'tone';
 import {SequenceMode} from './sequence.mode';
 import {notesByKey} from './pattern-generator/notes.by.key';
 
