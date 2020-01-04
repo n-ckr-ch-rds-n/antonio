@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PatternService} from '../pattern.service';
 import {PatternMode} from '../pattern.mode';
 import {Synth} from 'tone';
+import {NoteEvent} from './note.event';
 
 @Component({
   selector: 'app-pattern-generator',
@@ -26,7 +27,7 @@ export class PatternGeneratorComponent implements OnInit {
     this.patternService.generatePattern(this.activeBeats, mode, this.source);
   }
 
-  perform(noteEvent?: {beat: string, sixteenth: string, source: Synth}) {
+  perform(noteEvent: NoteEvent) {
     this.patternService.patternChange.emit(noteEvent);
   }
 

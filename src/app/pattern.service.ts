@@ -1,14 +1,15 @@
 import {EventEmitter, Injectable, Output} from '@angular/core';
 import {Beatmap} from './beatmap';
 import {PatternMode} from './pattern.mode';
-import {Instrument, Synth} from 'tone';
+import {Instrument} from 'tone';
+import {NoteEvent} from './pattern-generator/note.event';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PatternService {
   @Output()
-  patternChange = new EventEmitter<{source: Instrument}>();
+  patternChange = new EventEmitter<NoteEvent>();
 
   constructor() { }
 
