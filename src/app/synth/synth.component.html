@@ -1,5 +1,5 @@
 <mat-card>
-  <h2>{{synthType | titlecase}}</h2>
+  <app-instrument-name [name]="synthType | titlecase"></app-instrument-name>
   <div class="container">
     <div><app-synth-controls [synth]="synth"
                              [synthType]="synthType"

@@ -1,5 +1,5 @@
 <mat-card>
-  <h2>{{sample | titlecase}}</h2>
+  <app-instrument-name [name]="sample | titlecase"></app-instrument-name>
   <div class="container">
     <div>
       <app-volume-control [source]="sampler"></app-volume-control><br>

@@ -26,6 +26,7 @@ import { OscillatorComponent } from './oscillator/oscillator.component';
 import { EnveloperComponent } from './enveloper/enveloper.component';
 import { PannerComponent } from './panner/panner.component';
 import { DelayComponent } from './delay/delay.component';
+import { InstrumentNameComponent } from './instrument-name/instrument-name.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { DelayComponent } from './delay/delay.component';
     OscillatorComponent,
     EnveloperComponent,
     PannerComponent,
-    DelayComponent
+    DelayComponent,
+    InstrumentNameComponent
   ],
   imports: [
     BrowserModule,
