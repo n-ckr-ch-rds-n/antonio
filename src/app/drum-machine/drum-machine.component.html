@@ -5,7 +5,7 @@
     </mat-expansion-panel-header>
     <mat-form-field>
       <mat-label>Drum Kit:</mat-label>
-      <mat-select (valueChange)="drumkit = $event" [value]="drumkit">
+      <mat-select (valueChange)="changeDrumkit($event)" [value]="drumkit">
         <mat-option *ngFor="let kit of Object.values(Drumkit)" [value]="kit">{{kit}}</mat-option>
       </mat-select>
     </mat-form-field>
