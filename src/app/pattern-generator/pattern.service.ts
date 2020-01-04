@@ -1,6 +1,6 @@
 import {EventEmitter, Injectable, Output} from '@angular/core';
-import {Beatmap} from '../beatmap';
-import {PatternMode} from '../pattern.mode';
+import {Beatmap} from '../sequence/beatmap';
+import {PatternMode} from '../sequence/pattern.mode';
 import {Instrument} from 'tone';
 import {NoteEvent} from './note.event';
 

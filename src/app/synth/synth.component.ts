@@ -1,15 +1,15 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Instrument, Sequence, Synth} from 'tone';
 import cloneDeep from 'lodash/cloneDeep';
-import {defaultPatternValues} from '../default.pattern.values';
-import {Mood} from '../mood';
-import {SequenceService} from '../sequence.service';
-import {Beatmap} from '../beatmap';
-import {GenerateNotesRequest} from '../generate.notes.request';
-import {PitchConfig} from '../pitch.config';
+import {defaultPatternValues} from '../sequence/default.pattern.values';
+import {Mood} from '../sequence/mood';
+import {SequenceService} from '../sequence/sequence.service';
+import {Beatmap} from '../sequence/beatmap';
+import {GenerateNotesRequest} from '../sequence/generate.notes.request';
+import {PitchConfig} from '../sequence/pitch.config';
 import {SynthService} from './synth.service';
 import {SynthType} from './synth.type';
-import {SequenceMode} from '../sequence.mode';
+import {SequenceMode} from '../sequence/sequence.mode';
 import {PatternService} from '../pattern-generator/pattern.service';
 import {NoteEvent} from '../pattern-generator/note.event';
 

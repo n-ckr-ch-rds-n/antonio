@@ -1,4 +1,4 @@
-import {BeatDivision} from '../beat.division';
+import {BeatDivision} from '../sequence/beat.division';
 import {Instrument} from 'tone';
 
 export interface NoteEvent {

@@ -4,8 +4,8 @@ import {GenerateNotesRequest} from './generate.notes.request';
 import * as Tone from 'tone';
 import {Instrument, Sampler, Sequence, Synth} from 'tone';
 import {SequenceMode} from './sequence.mode';
-import {notesByKey} from './pattern-generator/notes.by.key';
-import {NoteEvent} from './pattern-generator/note.event';
+import {notesByKey} from '../pattern-generator/notes.by.key';
+import {NoteEvent} from '../pattern-generator/note.event';
 
 @Injectable({
   providedIn: 'root'

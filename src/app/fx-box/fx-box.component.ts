@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Effect, Instrument, Player} from 'tone';
-import {FxService} from '../fx.service';
+import {FxService} from './fx.service';
 import {MatCheckboxChange} from '@angular/material';
-import {EffectType} from '../effect.type';
+import {EffectType} from './effect.type';
 
 
 @Component({

@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {notesByKey} from '../pattern-generator/notes.by.key';
-import {Mood} from '../mood';
-import {PitchConfig} from '../pitch.config';
+import {Mood} from '../sequence/mood';
+import {PitchConfig} from '../sequence/pitch.config';
 
 @Component({
   selector: 'app-pitch-controls',

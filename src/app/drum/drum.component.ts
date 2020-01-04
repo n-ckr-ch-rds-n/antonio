@@ -1,16 +1,16 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as Tone from 'tone';
 import {Sampler, Sequence} from 'tone';
-import {defaultPatternValues} from '../default.pattern.values';
+import {defaultPatternValues} from '../sequence/default.pattern.values';
 import cloneDeep from 'lodash/cloneDeep';
-import {SequenceService} from '../sequence.service';
-import {SequenceMode} from '../sequence.mode';
-import {GenerateNotesRequest} from '../generate.notes.request';
+import {SequenceService} from '../sequence/sequence.service';
+import {SequenceMode} from '../sequence/sequence.mode';
+import {GenerateNotesRequest} from '../sequence/generate.notes.request';
 import {MatCheckboxChange} from '@angular/material';
 import {Drumkit} from '../drum-machine/drumkit';
 import {PatternService} from '../pattern-generator/pattern.service';
 import {DrumkitService} from '../drum-machine/drumkit.service';
-import {PatternMode} from '../pattern.mode';
+import {PatternMode} from '../sequence/pattern.mode';
 
 @Component({
   selector: 'app-drum',

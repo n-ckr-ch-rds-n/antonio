@@ -1,4 +1,4 @@
-import {Mood} from '../mood';
+import {Mood} from '../sequence/mood';
 
 export const notesByKey = {
   A: {
