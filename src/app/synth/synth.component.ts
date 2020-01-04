@@ -48,7 +48,13 @@ export class SynthComponent implements OnInit {
     this.sequence = this.sequenceService.generateSequence(this.synth, this.notes);
     this.sequence.start(0);
     this.patternService.patternChange.subscribe((noteEvent) => {
-      this.regenerateSequence(noteEvent);
+      if (noteEvent) {
+        if (noteEvent.source === this.synth) {
+          this.regenerateSequence(noteEvent);
+        }
+      } else {
+        this.regenerateSequence();
+      }
     });
   }
 

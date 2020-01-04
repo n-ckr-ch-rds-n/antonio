@@ -6,7 +6,7 @@
                              [pitchConfig]="pitchConfig"
                              (octaveChange)="octaveChange($event)"></app-synth-controls></div>
     <div><app-fx-box [source]="synth"></app-fx-box></div>
-    <div><app-pattern-generator [activeBeats]="activeBeats"></app-pattern-generator></div>
+    <div><app-pattern-generator [activeBeats]="activeBeats" [source]="synth"></app-pattern-generator></div>
   </div>
 </mat-card>
 
