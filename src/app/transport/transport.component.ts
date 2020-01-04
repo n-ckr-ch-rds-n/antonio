@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {TransportService} from '../transport.service';
+import {TransportService} from './transport.service';
 import * as Tone from 'tone';
 
 @Component({
