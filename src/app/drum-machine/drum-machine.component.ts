@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
 import {Drumkit} from './drumkit';
-import {DrumkitService} from '../drumkit.service';
+import {DrumkitService} from './drumkit.service';
 
 @Component({
   selector: 'app-drum-machine',
