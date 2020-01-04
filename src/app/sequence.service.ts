@@ -5,6 +5,7 @@ import * as Tone from 'tone';
 import {Instrument, Sampler, Sequence, Synth} from 'tone';
 import {SequenceMode} from './sequence.mode';
 import {notesByKey} from './pattern-generator/notes.by.key';
+import {NoteEvent} from './pattern-generator/note.event';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class SequenceService {
 
   constructor() { }
 
-  addOrRemoveNote(noteEvent: {beat: string, sixteenth: string, currentNotes: Array<any>}, request: GenerateNotesRequest) {
+  addOrRemoveNote(noteEvent: NoteEvent & {currentNotes: Array<any>}, request: GenerateNotesRequest) {
     const beat = parseInt(noteEvent.beat, 10);
     const sixteenth = parseInt(noteEvent.sixteenth, 10);
     noteEvent.currentNotes[beat][sixteenth] = noteEvent.currentNotes[beat][sixteenth] === null

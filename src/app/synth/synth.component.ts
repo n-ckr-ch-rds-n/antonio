@@ -11,6 +11,7 @@ import {SynthService} from '../synth.service';
 import {SynthType} from '../synth.type';
 import {SequenceMode} from '../sequence.mode';
 import {PatternService} from '../pattern.service';
+import {NoteEvent} from '../pattern-generator/note.event';
 
 @Component({
   selector: 'app-monosynth',
@@ -54,12 +55,10 @@ export class SynthComponent implements OnInit {
     });
   }
 
-  regenerateSequence(noteEvent?: {beat: string, sixteenth: string, source: Synth}) {
+  regenerateSequence(noteEvent: NoteEvent) {
     this.sequence.stop(0);
     this.notes = noteEvent.beat
-      ? this.sequenceService.addOrRemoveNote({
-        beat: noteEvent.beat, sixteenth: noteEvent.sixteenth, currentNotes: this.notes
-      }, this.notesRequest)
+      ? this.sequenceService.addOrRemoveNote({...noteEvent, currentNotes: this.notes}, this.notesRequest)
       : this.sequenceService.generateNotes(this.notesRequest);
     this.sequence = this.sequenceService.generateSequence(this.synth, this.notes);
     this.sequence.start(0);
