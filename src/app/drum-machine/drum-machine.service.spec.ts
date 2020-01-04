@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DrumkitService } from './drumkit.service';
+import { DrumMachineService } from './drum-machine.service';
 
-describe('DrumkitService', () => {
+describe('DrumMachineService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: DrumkitService = TestBed.get(DrumkitService);
+    const service: DrumMachineService = TestBed.get(DrumMachineService);
     expect(service).toBeTruthy();
   });
 });

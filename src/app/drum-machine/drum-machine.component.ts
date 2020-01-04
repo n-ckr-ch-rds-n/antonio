@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
 import {Drumkit} from './drumkit';
-import {DrumkitService} from './drumkit.service';
+import {DrumMachineService} from './drum-machine.service';
 
 @Component({
   selector: 'app-drum-machine',
@@ -18,7 +18,7 @@ export class DrumMachineComponent implements OnInit {
       'snare8', 'tom1', 'tom2', 'tom3']
   };
 
-  constructor(private drumkitService: DrumkitService) { }
+  constructor(private drumkitService: DrumMachineService) { }
 
   ngOnInit() {
   }

@@ -9,7 +9,7 @@ import {GenerateNotesRequest} from '../sequence/generate.notes.request';
 import {MatCheckboxChange} from '@angular/material';
 import {Drumkit} from '../drum-machine/drumkit';
 import {PatternService} from '../pattern-generator/pattern.service';
-import {DrumkitService} from '../drum-machine/drumkit.service';
+import {DrumMachineService} from '../drum-machine/drum-machine.service';
 import {PatternMode} from '../sequence/pattern.mode';
 
 @Component({
@@ -39,7 +39,7 @@ export class DrumComponent implements OnInit {
 
   constructor(private sequenceService: SequenceService,
               private patternService: PatternService,
-              private drumkitService: DrumkitService) { }
+              private drumkitService: DrumMachineService) { }
 
   ngOnInit() {
     this.sampler = this.initialiseSampler();
