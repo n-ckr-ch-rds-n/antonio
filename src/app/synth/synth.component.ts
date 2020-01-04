@@ -10,7 +10,7 @@ import {PitchConfig} from '../pitch.config';
 import {SynthService} from './synth.service';
 import {SynthType} from './synth.type';
 import {SequenceMode} from '../sequence.mode';
-import {PatternService} from '../pattern.service';
+import {PatternService} from '../pattern-generator/pattern.service';
 import {NoteEvent} from '../pattern-generator/note.event';
 
 @Component({

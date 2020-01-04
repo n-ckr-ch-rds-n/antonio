@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {PatternService} from '../pattern.service';
+import {PatternService} from './pattern.service';
 import {PatternMode} from '../pattern.mode';
 import {Synth} from 'tone';
 import {NoteEvent} from './note.event';

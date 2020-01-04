@@ -8,7 +8,7 @@ import {SequenceMode} from '../sequence.mode';
 import {GenerateNotesRequest} from '../generate.notes.request';
 import {MatCheckboxChange} from '@angular/material';
 import {Drumkit} from '../drum-machine/drumkit';
-import {PatternService} from '../pattern.service';
+import {PatternService} from '../pattern-generator/pattern.service';
 import {DrumkitService} from '../drum-machine/drumkit.service';
 import {PatternMode} from '../pattern.mode';
 
