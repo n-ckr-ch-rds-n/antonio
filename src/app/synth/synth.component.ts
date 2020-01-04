@@ -10,6 +10,7 @@ import {PitchConfig} from '../pitch.config';
 import {SynthService} from '../synth.service';
 import {SynthType} from '../synth.type';
 import {SequenceMode} from '../sequence.mode';
+import {PatternService} from '../pattern.service';
 
 @Component({
   selector: 'app-monosynth',
@@ -38,13 +39,17 @@ export class SynthComponent implements OnInit {
 
 
   constructor(private sequenceService: SequenceService,
-              private synthService: SynthService) { }
+              private synthService: SynthService,
+              private patternService: PatternService) { }
 
   ngOnInit() {
     this.synth = this.synthService.create(this.synthType);
     this.notes = this.sequenceService.generateNotes(this.notesRequest);
     this.sequence = this.sequenceService.generateSequence(this.synth, this.notes);
     this.sequence.start(0);
+    this.patternService.patternChange.subscribe((noteEvent) => {
+      this.regenerateSequence(noteEvent);
+    });
   }
 
   regenerateSequence(noteEvent?: {beat: string, sixteenth: string}) {
