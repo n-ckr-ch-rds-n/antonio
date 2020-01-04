@@ -33,6 +33,6 @@ export class TransportComponent implements OnInit {
   }
 
   tempoChange(event: any) {
-    this.transportService.transport.bpm.value = event.target.value;
+    this.transportService.transport.bpm.value = event.value;
   }
 }
