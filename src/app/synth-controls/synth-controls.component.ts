@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PitchConfig} from '../pitch.config';
 import {Instrument, Synth} from 'tone';
-import {SynthType} from '../synth.type';
+import {SynthType} from '../synth/synth.type';
 
 @Component({
   selector: 'app-synth-controls',

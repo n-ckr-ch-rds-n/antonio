@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SynthType} from '../synth.type';
+import {SynthType} from '../synth/synth.type';
 
 @Component({
   selector: 'app-synth-bank',
