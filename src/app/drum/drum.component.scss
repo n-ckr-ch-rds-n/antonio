@@ -1,17 +1,17 @@
-
-
-knob{
-  background-size:contain;
+knob {
+  background-size: contain;
   margin-left: 20px;
   width: 3rem;
   height: 3rem;
-  display:block;
+  display: block;
 }
-knob.skin1{
-  background:url('../../assets/images/skin1_back.svg');
+
+knob.skin1 {
+  background: url('../../assets/images/skin1_back.svg');
   background-size: contain;
 }
-knob.skin1 ::ng-deep .knob{
-  background:url('../../assets/images/skin1_front.svg');
+
+knob.skin1 ::ng-deep .knob {
+  background: url('../../assets/images/skin1_front.svg');
   background-size: contain;
 }
