@@ -1,0 +1,8 @@
+<knob class="skin1"
+      matTooltip="{{parameter | titlecase}}: {{Math.floor(value)}}"
+      [min]="min"
+      [max]="max"
+      [startDegree]="200"
+      [endDegree]="120"
+      [value]="value"
+      (change)="parameterChange.emit($event)"></knob>
