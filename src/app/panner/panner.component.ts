@@ -20,4 +20,8 @@ export class PannerComponent implements OnInit {
     this.source.connect(this.panner);
   }
 
+  panChange(event: number) {
+    this.panner.pan.value = event * 0.01;
+  }
+
 }
