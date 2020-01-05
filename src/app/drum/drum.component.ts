@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import * as Tone from 'tone';
 import {Sampler, Sequence} from 'tone';
 import {defaultPatternValues} from '../sequence/default.pattern.values';
