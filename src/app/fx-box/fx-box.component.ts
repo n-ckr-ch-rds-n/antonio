@@ -3,7 +3,7 @@ import {Effect, Filter, Instrument, Player} from 'tone';
 import {FxService} from './fx.service';
 import {MatCheckboxChange} from '@angular/material';
 import {EffectType} from './effect.type';
-
+import {effectConfigs} from './effect.configs';
 
 @Component({
   selector: 'app-fx-box',
@@ -12,6 +12,8 @@ import {EffectType} from './effect.type';
 })
 export class FxBoxComponent implements OnInit {
   EffectType = EffectType;
+  effectConfigs = effectConfigs;
+
   fxBank: Record<string, Effect | Filter> = {
     [EffectType.Delay]: undefined,
     [EffectType.Distortion]: undefined,

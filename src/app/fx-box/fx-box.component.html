@@ -1,10 +1,12 @@
-<div class="col fx-box">
-  <app-delay [delay]="fxBank[EffectType.Delay]" (delayChange)="fxChange($event)"></app-delay>
-  <label>Distortion: </label>
-  <mat-checkbox name="{{EffectType.Distortion}}" (change)="fxChange($event)"></mat-checkbox>
-  <label>Reverb: </label>
-  <mat-checkbox name="{{EffectType.Reverb}}" (change)="fxChange($event)"></mat-checkbox>
-  <app-filter [filter]="fxBank[EffectType.Filter]" (filterChange)="fxChange($event)"></app-filter>
+<div class="col fx-box" *ngFor="let config of effectConfigs">
+  <app-effect [config]="config"
+              [effect]="fxBank[config.type]"
+              (switch)="fxChange($event)"></app-effect>
+<!--  <app-delay [delay]="fxBank[EffectType.Delay]" (delayChange)="fxChange($event)"></app-delay>-->
+<!--  <label>Distortion: </label>-->
+<!--  <mat-checkbox name="{{EffectType.Distortion}}" (change)="fxChange($event)"></mat-checkbox>-->
+<!--  <label>Reverb: </label>-->
+<!--  <mat-checkbox name="{{EffectType.Reverb}}" (change)="fxChange($event)"></mat-checkbox>-->
+<!--  <app-filter [filter]="fxBank[EffectType.Filter]" (filterChange)="fxChange($event)"></app-filter>-->
+
 </div>
-
-

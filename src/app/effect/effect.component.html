@@ -1,0 +1,5 @@
+<label>{{config.type | titlecase}}: </label>
+<mat-checkbox name="{{config.type}}" (change)="switch.emit($event)"></mat-checkbox>
+<ng-container *ngIf="effect">
+
+</ng-container>
