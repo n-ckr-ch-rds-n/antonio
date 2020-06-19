@@ -1,0 +1,5 @@
+<label>Frequency: </label><br>
+<app-control-knob [min]="0" [max]="500"
+                  [parameter]="'frequency'"
+                  [value]="filter.frequency.input.value"
+                  (parameterChange)="frequencyChange($event)"></app-control-knob>
