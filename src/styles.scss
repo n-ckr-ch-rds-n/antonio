@@ -8,23 +8,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .container {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
-}
-.container > div {
-  margin: 1rem;
-  width: 33%;
-}
-
-.control-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  .col-1 {
-    padding: 1rem;
-    grid-column-start: 1;
-  }
-  .col-2 {
-    padding: 1rem;
-    grid-column-start: 2;
-  }
+  flex-direction: row;
 }

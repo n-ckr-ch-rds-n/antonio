@@ -1,12 +1,12 @@
 <mat-card>
   <app-instrument-name [name]="synthType | titlecase"></app-instrument-name>
   <div class="container">
-    <div><app-synth-controls [synth]="synth"
-                             [synthType]="synthType"
-                             [pitchConfig]="pitchConfig"
-                             (octaveChange)="octaveChange($event)"></app-synth-controls></div>
-    <div><app-fx-box [source]="synth"></app-fx-box></div>
-    <div><app-pattern-generator [activeBeats]="activeBeats" [source]="synth"></app-pattern-generator></div>
+      <app-synth-controls [synth]="synth"
+                          [synthType]="synthType"
+                          [pitchConfig]="pitchConfig"
+                          (octaveChange)="octaveChange($event)"></app-synth-controls>
+      <app-fx-box [source]="synth"></app-fx-box>
+      <app-pattern-generator [activeBeats]="activeBeats" [source]="synth"></app-pattern-generator>
   </div>
 </mat-card>
 
