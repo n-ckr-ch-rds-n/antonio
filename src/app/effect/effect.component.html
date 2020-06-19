@@ -7,6 +7,6 @@
                       [max]="knob.max"
                       [value]="effect[knob.parameter].value"
                       [parameter]="knob.parameter"
-                      (parameterChange)="effect[knob.parameter].value = $event"></app-control-knob>
+                      (parameterChange)="setValue($event, knob.parameter)"></app-control-knob>
   </div>
 </ng-container>

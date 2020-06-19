@@ -28,9 +28,9 @@ import {PannerComponent} from './panner/panner.component';
 import {DelayComponent} from './delay/delay.component';
 import {InstrumentNameComponent} from './instrument-name/instrument-name.component';
 import {KnobModule} from 'ng2-knob';
-import { ControlKnobComponent } from './control-knob/control-knob.component';
-import { FilterComponent } from './filter/filter.component';
-import { EffectComponent } from './effect/effect.component';
+import {ControlKnobComponent} from './control-knob/control-knob.component';
+import {FilterComponent} from './filter/filter.component';
+import {EffectComponent} from './effect/effect.component';
 
 @NgModule({
   declarations: [
