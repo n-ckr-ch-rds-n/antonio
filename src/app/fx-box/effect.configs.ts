@@ -1,12 +1,19 @@
 import {EffectType} from './effect.type';
 import {EffectConfig} from './effect.config';
+import {DelayParam} from './delay.param';
+import {FilterParam} from './filter.param';
 
 export const effectConfigs: Array<EffectConfig> = [
   {
     type: EffectType.Reverb
   },
   {
-    type: EffectType.Delay
+    type: EffectType.Delay,
+    knobs: Object.values(DelayParam).map(parameter => ({
+      min: -100,
+      max: 100,
+      parameter
+    }))
   },
   {
     type: EffectType.Distortion
@@ -17,7 +24,7 @@ export const effectConfigs: Array<EffectConfig> = [
       {
         min: 0,
         max: 500,
-        parameter: 'frequency'
+        parameter: FilterParam.Frequency
       }
     ]
   }
