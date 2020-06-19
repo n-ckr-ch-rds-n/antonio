@@ -6,6 +6,7 @@ import {EffectParam} from '../fx-box/effect.param';
 import {DelayParam} from '../fx-box/delay.param';
 import {FilterParam} from '../fx-box/filter.param';
 import {DistortionParam} from '../fx-box/distortion.param';
+import {ReverbParam} from '../fx-box/reverb.param';
 
 @Component({
   selector: 'app-effect',
@@ -27,7 +28,8 @@ export class EffectComponent implements OnInit {
     [DelayParam.DelayTime]: 0.01,
     [DelayParam.Feedback]: 0.01,
     [FilterParam.Frequency]: 1,
-    [DistortionParam.Distortion]: 0.01
+    [DistortionParam.Distortion]: 0.01,
+    [ReverbParam.Decay]: 1
   };
 
   constructor() { }
@@ -41,6 +43,7 @@ export class EffectComponent implements OnInit {
       this.effect[param].value = newValue;
     } else {
       this.effect[param] = newValue;
+      console.log(this.effect[param]);
     }
   }
 

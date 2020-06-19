@@ -21,7 +21,7 @@ export class ControlKnobComponent implements OnInit {
   value: number;
 
   @Output()
-  parameterChange = new EventEmitter<number>()
+  parameterChange = new EventEmitter<number>();
 
   constructor() { }
 

@@ -4,10 +4,18 @@ import {DelayParam} from './delay.param';
 import {FilterParam} from './filter.param';
 import {EffectParam} from './effect.param';
 import {DistortionParam} from './distortion.param';
+import {ReverbParam} from './reverb.param';
 
 export const effectConfigs: Array<EffectConfig> = [
   {
-    type: EffectType.Reverb
+    type: EffectType.Reverb,
+    knobs: [
+      {
+        min: 1,
+        max: 100,
+        parameter: ReverbParam.Decay
+      }
+    ]
   },
   {
     type: EffectType.Delay,
