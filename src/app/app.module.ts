@@ -29,6 +29,7 @@ import {DelayComponent} from './delay/delay.component';
 import {InstrumentNameComponent} from './instrument-name/instrument-name.component';
 import {KnobModule} from 'ng2-knob';
 import { ControlKnobComponent } from './control-knob/control-knob.component';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ControlKnobComponent } from './control-knob/control-knob.component';
     PannerComponent,
     DelayComponent,
     InstrumentNameComponent,
-    ControlKnobComponent
+    ControlKnobComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

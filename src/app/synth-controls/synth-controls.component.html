@@ -9,6 +9,9 @@
   </ng-container>
   <app-volume-control [source]="synth"></app-volume-control>
   <app-panner [source]="synth"></app-panner>
+  <ng-container *ngIf="synthType === SynthType.Monosynth">
+    <app-filter></app-filter>
+  </ng-container>
 </div>
 
 
