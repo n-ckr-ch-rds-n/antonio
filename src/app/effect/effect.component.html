@@ -5,7 +5,7 @@
     <app-control-knob *ngFor="let knob of config.knobs"
                       [min]="knob.min"
                       [max]="knob.max"
-                      [value]="effect[knob.parameter].value"
+                      [value]="effect[knob.parameter].value || effect[knob.parameter] * 100"
                       [parameter]="knob.parameter"
                       (parameterChange)="setValue($event, knob.parameter)"></app-control-knob>
   </div>
