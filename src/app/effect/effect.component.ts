@@ -14,15 +14,6 @@ import {DistortionParam} from '../fx-box/distortion.param';
 })
 export class EffectComponent implements OnInit {
 
-  multiplierByParam: Record<EffectParam, number> = {
-    [DelayParam.DelayTime]: 0.01,
-    [DelayParam.Feedback]: 0.01,
-    [FilterParam.Frequency]: 1,
-    [DistortionParam.Distortion]: 0.01
-  };
-
-  value: number;
-
   @Input()
   config: EffectConfig;
 
@@ -32,6 +23,13 @@ export class EffectComponent implements OnInit {
   @Output()
   switch = new EventEmitter<MatCheckboxChange>();
 
+  multiplierByParam: Record<EffectParam, number> = {
+    [DelayParam.DelayTime]: 0.01,
+    [DelayParam.Feedback]: 0.01,
+    [FilterParam.Frequency]: 1,
+    [DistortionParam.Distortion]: 0.01
+  };
+
   constructor() { }
 
   ngOnInit() {
@@ -39,12 +37,15 @@ export class EffectComponent implements OnInit {
 
   setValue(event: number, param: EffectParam) {
     const newValue = event * this.multiplierByParam[param];
-    if (this.effect[param].value) {
+    if (this.valueType(param)) {
       this.effect[param].value = newValue;
-    } else if (this.effect[param]) {
+    } else {
       this.effect[param] = newValue;
-      console.log(this.effect[param]);
     }
+  }
+
+  valueType(param: EffectParam): boolean {
+    return [DelayParam.DelayTime, DelayParam.Feedback, FilterParam.Frequency].includes(param as any);
   }
 
 }
