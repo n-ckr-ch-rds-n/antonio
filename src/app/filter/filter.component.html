@@ -1,9 +1,19 @@
 <label>{{EffectType.Filter | titlecase}}: </label>
 <mat-checkbox name="{{EffectType.Filter}}" (change)="filterChange.emit($event)"></mat-checkbox><br>
-<app-control-knob *ngIf='filter'
-                  [min]="0"
-                  [max]="10000"
-                  [value]="filter.frequency.value"
-                  [parameter]="'frequency'"
-                  (parameterChange)="filter ? filter.frequency.value = $event : null"></app-control-knob>
+<ng-container *ngIf="filter">
+  <div class="container">
+    <mat-form-field>
+      <mat-label>Filter type:</mat-label>
+      <mat-select (valueChange)="filter.type = $event" [value]="filter.type">
+        <mat-option *ngFor="let type of Object.values(FilterType)" [value]="type">{{type | titlecase}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <app-control-knob [min]="0"
+                      [max]="10000"
+                      [value]="filter.frequency.value"
+                      [parameter]="'frequency'"
+                      (parameterChange)="filter ? filter.frequency.value = $event : null"></app-control-knob>
+  </div>
+</ng-container>
+
 
