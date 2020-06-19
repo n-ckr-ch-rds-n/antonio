@@ -9,4 +9,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
 }

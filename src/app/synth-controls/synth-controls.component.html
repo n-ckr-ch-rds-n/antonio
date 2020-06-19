@@ -1,9 +1,11 @@
 <div class="container">
   <app-pitch-controls [pitchConfig]="pitchConfig"
-                      (octaveChange)="octaveChange.emit($event)"></app-pitch-controls>
+                        (octaveChange)="octaveChange.emit($event)"></app-pitch-controls>
   <ng-container *ngIf="[SynthType.FMSynth, SynthType.Monosynth, SynthType.MembraneSynth].includes(synthType)">
-    <app-oscillator [oscillator]="synth.oscillator"></app-oscillator>
-    <app-enveloper [envelope]="synth.envelope"></app-enveloper>
+    <div class="col">
+      <app-oscillator [oscillator]="synth.oscillator"></app-oscillator>
+      <app-enveloper [envelope]="synth.envelope"></app-enveloper>
+    </div>
   </ng-container>
   <app-volume-control [source]="synth"></app-volume-control>
   <app-panner [source]="synth"></app-panner>
