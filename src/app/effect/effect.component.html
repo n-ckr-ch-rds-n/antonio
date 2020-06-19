@@ -1,5 +1,10 @@
 <label>{{config.type | titlecase}}: </label>
 <mat-checkbox name="{{config.type}}" (change)="switch.emit($event)"></mat-checkbox>
 <ng-container *ngIf="effect">
-
+  <app-control-knob *ngFor="let knob of config.knobs"
+                    [min]="knob.min"
+                    [max]="knob.max"
+                    [value]="effect[knob.parameter].value"
+                    [parameter]="knob.parameter"
+                    (parameterChange)="effect[knob.parameter].value = $event"></app-control-knob>
 </ng-container>

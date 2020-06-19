@@ -12,6 +12,13 @@ export const effectConfigs: Array<EffectConfig> = [
     type: EffectType.Distortion
   },
   {
-    type: EffectType.Filter
+    type: EffectType.Filter,
+    knobs: [
+      {
+        min: 0,
+        max: 500,
+        parameter: 'frequency'
+      }
+    ]
   }
 ];
