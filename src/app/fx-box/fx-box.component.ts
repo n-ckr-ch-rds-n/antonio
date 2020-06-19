@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Effect, Instrument, Player} from 'tone';
+import {Effect, Filter, Instrument, Player} from 'tone';
 import {FxService} from './fx.service';
 import {MatCheckboxChange} from '@angular/material';
 import {EffectType} from './effect.type';
@@ -12,10 +12,11 @@ import {EffectType} from './effect.type';
 })
 export class FxBoxComponent implements OnInit {
   EffectType = EffectType;
-  fxBank: Record<string, Effect> = {
+  fxBank: Record<string, Effect | Filter> = {
     [EffectType.Delay]: undefined,
     [EffectType.Distortion]: undefined,
-    [EffectType.Reverb]: undefined
+    [EffectType.Reverb]: undefined,
+    [EffectType.Filter]: undefined
   };
 
   @Input()

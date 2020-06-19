@@ -17,7 +17,7 @@ export class FxService {
       await reverbNode.generate();
       return reverbNode;
     },
-    [EffectType.Filter]: () => new Tone.Filter(200, FilterType.Highpass)
+    [EffectType.Filter]: () => new Tone.Filter(200, FilterType.Highpass).toMaster()
   };
 
   constructor() { }

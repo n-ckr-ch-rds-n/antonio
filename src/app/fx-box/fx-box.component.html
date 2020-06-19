@@ -7,6 +7,7 @@
   <div class="col-2">
     <label>Reverb: </label>
     <mat-checkbox name="{{EffectType.Reverb}}" (change)="fxChange($event)"></mat-checkbox><br>
+    <app-filter [filter]="fxBank[EffectType.Filter]" (filterChange)="fxChange($event)"></app-filter>
   </div>
 </div>
 

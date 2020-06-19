@@ -1,5 +1,9 @@
-<label>Frequency: </label><br>
-<app-control-knob [min]="0" [max]="500"
+<label>{{EffectType.Filter | titlecase}}: </label>
+<mat-checkbox name="{{EffectType.Filter}}" (change)="filterChange.emit($event)"></mat-checkbox><br>
+<app-control-knob *ngIf='filter'
+                  [min]="0"
+                  [max]="10000"
+                  [value]="filter.frequency.value"
                   [parameter]="'frequency'"
-                  [value]="filter.frequency.input.value"
-                  (parameterChange)="frequencyChange($event)"></app-control-knob>
+                  (parameterChange)="filter ? filter.frequency.value = $event : null"></app-control-knob>
+

@@ -1,5 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Filter} from 'tone';
+import {EffectType} from '../fx-box/effect.type';
+import {MatCheckboxChange} from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-filter',
@@ -7,18 +9,17 @@ import {Filter} from 'tone';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit {
+  EffectType = EffectType;
 
   @Input()
   filter: Filter;
 
+  @Output()
+  filterChange = new EventEmitter<MatCheckboxChange>();
+
   constructor() { }
 
   ngOnInit() {
-  }
-
-  frequencyChange(event: any) {
-    console.log('FREQ CHANGE', event);
-    console.log(this.filter);
   }
 
 }
